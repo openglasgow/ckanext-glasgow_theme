@@ -1,0 +1,85 @@
+
+@font-face {
+	font-family: 'Gibson-Bold';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Bold.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Bold.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Bold.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-Bold.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Bold.svg#Gibson-Bold') format('svg');
+	font-weight: bold;
+}
+
+@font-face{
+	font-family: 'Gibson-BoldItalic';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-BoldItalic.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-BoldItalic.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-BoldItalic.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-BoldItalic.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-BoldItalic.svg#Gibson-BoldItalic') format('svg');
+	font-weight: bold;
+	font-style: italic, oblique;
+}
+
+@font-face{
+	font-family: 'Gibson-Italic';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Italic.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Italic.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Italic.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-Italic.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Italic.svg#Gibson-Italic') format('svg');
+	font-style: italic, oblique;
+}
+
+@font-face{
+	font-family: 'Gibson-Light';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Light.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Light.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Light.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-Light.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Light.svg#Gibson-Italic') format('svg');
+	font-weight: lighter;
+}
+
+@font-face{
+	font-family: 'Gibson-LightItalic';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-LightIt.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-LightIt.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-LightIt.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-LightIt.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-LightIt.svg#Gibson-LightItalic') format('svg');
+	font-weight: lighter;
+}
+
+
+@font-face{
+	font-family: 'Gibson-Regular';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Regular.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-Regular.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Regular.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-Regular.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-Regular.svg#Gibson-Regular') format('svg');
+}
+
+@font-face{
+	font-family: 'Gibson-SemiBold';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-SemiBold.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-SemiBold.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBold.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBold.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBold.svg#Gibson-SemiBold') format('svg');
+	font-weight: bold;
+}
+
+@font-face{
+	font-family: 'Gibson-SemiBoldItalic';
+	src: url('../font/GibsonFamily/CanadaType-Gibson-SemiBoldIt.eot');
+	src: url('../font/GibsonFamily/CanadaType-Gibson-SemiBoldIt.eot#iefix') format('embedded-opentype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBoldIt.woff') format('woff'), 
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBoldIt.ttf') format('truetype'),
+		 url('../font/GibsonFamily/CanadaType-Gibson-SemiBoldIt.svg#Gibson-SemiBoldItalic') format('svg');
+	font-weight: bold;
+	font-style: italic, oblique;
+}
+
+
+

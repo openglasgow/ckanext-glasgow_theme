@@ -1,0 +1,58 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Groups of Datasets') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Groups'), controller='group', action='index' %}</li>
+{% endblock %}
+
+{% block add_action_content %}
+  {% if h.check_access('group_create') %}
+    {% link_for _('Add Group'), controller='group', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
+  {% endif %}
+{% endblock %}
+
+{% block primary_content %}
+  <div class="module">
+    <div class="module-content">
+      <h1 class="hide-heading">{{ _('Groups') }}</h1>
+      {% block groups_search_form %}
+      {% snippet 'snippets/simple_search.html', q=c.q, sort=c.sort_by_selected, placeholder=_('Search groups...') %}
+      {% endblock %}
+      <h2 class="is-search-title">
+        {% block groups_search_result_text %}
+        {% snippet 'snippets/search_result_text.html', query=c.q, count=c.page.item_count, type='group' %}
+        {% endblock %}
+      </h2>
+      {% block groups_list %}
+      {% if c.page.items or request.params %}
+        {% snippet "group/snippets/group_list.html", groups=c.page.items %}
+      {% else %}
+        <p class="empty">
+          {{ _('There are currently no groups for this site') }}.
+          {% if h.check_access('group_create') %}
+            {% link_for _('How about creating one?'), controller='group', action='new' %}</a>.
+          {% endif %}
+        </p>
+      {% endif %}
+      {% endblock %}
+    </div>
+    {% block page_pagination %}
+    {{ c.page.pager() }}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+{% block secondary_content %}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="icon-info-sign"></i>
+      {{ _('What are Groups?') }}
+    </h2>
+    <div class="module-content">
+      {% trans %}
+        <p>Citizens are very clear about what they want from their city. The topics reflect their broad priorities.</p><p>The more detailed tags allow you to select datasets closely related to your subject of interest.</p>
+      {% endtrans %}
+    </div>
+  </div>
+{% endblock %}

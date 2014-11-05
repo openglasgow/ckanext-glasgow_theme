@@ -1,0 +1,150 @@
+{% ckan_extends %}
+
+{% block header %}
+{% block header_account %}
+  <header class="account-masthead">
+    <div class="container">
+    <div class='future-block'>
+      <a href='http://open.glasgow.gov.uk'>
+      {# <img src='/base/images/future/future-cities.png' /></a> #}
+    </div>
+      {% if c.userobj %}
+        <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+          <ul class="unstyled">
+            <li>
+                <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
+                  {# <img src="/images/icon-future.png" width="13px"/> #}
+                  {# <i class="icon-future"></i> #}
+                </a>
+            </li>
+      <li>
+      <li>
+                <a href="http://open.glasgow.gov.uk/howdowecollaborate?subject=Data%20Portal" title="Contact">
+                  <i class="icon-envelope-alt"></i>
+                </a>
+            </li>
+      <li>
+                <a href="http://twitter.com/openglasgow" title="Contact" target="_blank">
+                  <i class="icon-twitter"></i>
+                </a>
+            </li>
+            {% block header_account_logged %}
+            {% if c.userobj.sysadmin %}
+              <li>
+                <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
+                  <i class="icon-legal"></i>
+                </a>
+              </li>
+            {% endif %}
+            <li>
+              <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
+                {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''), size=22) }}
+                <span class="username">{{ c.userobj.display_name }}</span>
+              </a>
+            </li>
+              {% set new_activities = h.new_activities() %}
+              <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}">
+                {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities) %}
+                <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
+                  <i class="icon-dashboard"></i>
+                  <span>{{ new_activities }}</span>
+                </a>
+              </li>
+              {% block header_account_settings_link %}
+                <li>
+                  <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
+                    <i class="icon-cog"></i>
+                  </a>
+                </li>
+              {% endblock %}
+              {% block header_account_log_out_link %}
+                <li>
+                  <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+                    <i class="icon-signout"></i>
+                  </a>
+                </li>
+              {% endblock %}
+            {% endblock %}
+          </ul>
+        </div>
+      {% else %}
+        <nav class="account not-authed">
+          <ul class="unstyled">
+            <li>
+                <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
+                  <!-- <img src="http://open.glasgow.gov.uk/wp-content/themes/strappress-child/images/icon-future.png" /> -->
+                  {# <i class="icon-future"></i> #}
+                </a>
+            </li>
+      <li>
+                <a href="http://open.glasgow.gov.uk/howdowecollaborate?subject=Data%20Portal" title="Contact">
+                  <i class="icon-envelope-alt"></i>
+                </a>
+            </li>
+      <li>
+                <a href="http://twitter.com/openglasgow" title="Contact" target="_blank">
+                  <i class="icon-twitter"></i>
+                </a>
+            </li>
+            {% block header_account_notlogged %}
+            <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
+            <!--<li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>-->
+            {% endblock %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </header>
+{% endblock %}
+<header class="masthead">
+  {% block header_debug %}
+  {% if g.debug and not g.debug_supress_header %}
+    <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
+  {% endif %}
+  {% endblock %}
+  <div class="container">
+    {# The .header-image class hides the main text and uses image replacement for the title #}
+    <hgroup class="{{ g.header_class }}">
+
+      {% block header_logo %}
+
+          <h1 id='logo-header'>
+            <a href="{{ h.url('home') }}"><span>Data</span>
+            {# <img src='/base/images/future/data-rocket.png' style= "margin-top:15px"/></a> #}
+          </h1>
+
+      {% endblock %}
+
+    </hgroup>
+
+    <div class="content">
+
+      {% block header_site_navigation %}
+        <nav class="section navigation">
+          <ul class="nav nav-pills">
+            {% block header_site_navigation_tabs %}
+              {% if h.check_access('approvals_list') %}
+              {{ h.build_nav_main(
+                ('search', _('Datasets')),
+                ('organizations_index', _('Organizations')),
+                ('about', _('About')),
+                ('approvals_list', _('Pending Approvals')),
+              ) }}
+
+              {% else %}
+              {{ h.build_nav_main(
+                ('search', _('Datasets')),
+                ('organizations_index', _('Organizations')),
+                ('about', _('About')),
+              ) }}
+              {% endif %}
+            {% endblock %}
+          </ul>
+        </nav>
+      {% endblock %}
+
+
+    </div>
+  </div>
+</header>
+{% endblock %}

@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'RemoPro-Blond';
+	src: url('../font/Remo_font/Blond/RemoPro-Blond.eot');
+	src: url('../font/Remo_font/Blond/RemoPro-Blond.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/Blond/RemoPro-Blond.woff') format('woff'), 
+		 url('../font/Remo_font/Blond/RemoPro-Blond.ttf') format('truetype'),
+		 url('../font/Remo_font/Blond/RemoPro-Blond.svg#RemoPro-Blond') format('svg');
+}
+
+@font-face{
+	font-family: 'RemoPro-Blond-Italic';
+	src: url('../font/Remo_font/BlondItalic/RemoPro-BlondItalic.eot');
+	src: url('../font/Remo_font/BlondItalic/RemoPro-BlondItalic.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/BlondItalic/RemoPro-BlondItalic.woff') format('woff'), 
+		 url('../font/Remo_font/BlondItalic/RemoPro-BlondItalic.ttf') format('truetype'),
+		 url('../font/Remo_font/BlondItalic/RemoPro-BlondItalic.svg#RemoPro-Blond-Italic') format('svg');
+	font-style: italic, oblique;
+}
+
+@font-face{
+	font-family: 'RemoPro-Bold';
+	src: url('../font/Remo_font/Bold/RemoPro-Bold.eot');
+	src: url('../font/Remo_font/Bold/RemoPro-Bold.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/Bold/RemoPro-Bold.woff') format('woff'), 
+		 url('../font/Remo_font/Bold/RemoPro-Bold.ttf') format('truetype'),
+		 url('../font/Remo_font/Bold/RemoPro-Bold.svg#RemoPro-Bold') format('svg');
+	font-weight: bold;
+}
+
+@font-face{
+	font-family: 'RemoPro-Bold-Italic';
+	src: url('../font/Remo_font/BoldItalic/RemoPro-BoldItalic.eot');
+	src: url('../font/Remo_font/BoldItalic/RemoPro-BoldItalic.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/BoldItalic/RemoPro-BoldItalic.woff') format('woff'), 
+		 url('../font/Remo_font/BoldItalic/RemoPro-BoldItalic.ttf') format('truetype'),
+		 url('../font/Remo_font/BoldItalic/RemoPro-BoldItalic.svg#RemoPro-Bold-Italic') format('svg');
+	font-weight: bold;
+	font-style: italic, oblique;
+}
+
+@font-face{
+	font-family: 'RemoPro-Medium';
+	src: url('../font/Remo_font/Medium/RemoPro-Medium.eot');
+	src: url('../font/Remo_font/Medium/RemoPro-Medium.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/Medium/RemoPro-Medium.woff') format('woff'), 
+		 url('../font/Remo_font/Medium/RemoPro-Medium.ttf') format('truetype'),
+		 url('../font/Remo_font/Medium/RemoPro-Medium.svg#RemoPro-Medium') format('svg');
+}
+
+@font-face{
+	font-family: 'RemoPro-Light';
+	src: url('../font/Remo_font/Light/RemoPro-Light.eot');
+	src: url('../font/Remo_font/Light/RemoPro-Light.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/Light/RemoPro-Light.woff') format('woff'), 
+		 url('../font/Remo_font/Light/RemoPro-Light.ttf') format('truetype'),
+		 url('../font/Remo_font/Light/RemoPro-Light.svg#RemoPro-Light') format('svg');
+}
+
+@font-face{
+	font-family: 'RemoPro-Medium-Italic';
+	src: url('../font/Remo_font/MediumItalic/RemoPro-MediumItalic.eot');
+	src: url('../font/Remo_font/MediumItalic/RemoPro-MediumItalic.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/MediumItalic/RemoPro-MediumItalic.woff') format('woff'), 
+		 url('../font/Remo_font/MediumItalic/RemoPro-MediumItalic.ttf') format('truetype'),
+		 url('../font/Remo_font/MediumItalic/RemoPro-MediumItalic.svg#RemoPro-Medium-Italic') format('svg');
+	font-style: italic, oblique;
+}
+
+
+
+@font-face{
+	font-family: 'RemoPro-Semi-Bold';
+	src: url('../font/Remo_font/SemiBold/RemoPro-SemiBold.eot');
+	src: url('../font/Remo_font/SemiBold/RemoPro-SemiBold.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/SemiBold/RemoPro-SemiBold.woff') format('woff'), 
+		 url('../font/Remo_font/SemiBold/RemoPro-SemiBold.ttf') format('truetype'),
+		 url('../font/Remo_font/SemiBold/RemoPro-SemiBold.svg#RemoPro-Semi-Bold') format('svg');
+	font-weight: bold;
+}
+
+@font-face{
+	font-family: 'RemoPro-Semi-Bold-Italic';
+	src: url('../font/Remo_font/BoldItalic/RemoPro-Semi-BoldItalic.eot');
+	src: url('../font/Remo_font/BoldItalic/RemoPro-Semi-BoldItalic.eot#iefix') format('embedded-opentype'),
+		 url('../font/Remo_font/BoldItalic/RemoPro-Semi-BoldItalic.woff') format('woff'), 
+		 url('../font/Remo_font/BoldItalic/RemoPro-Semi-BoldItalic.ttf') format('truetype'),
+		 url('../font/Remo_font/BoldItalic/RemoPro-Semi-BoldItalic.svg#RemoPro-Semi-Bold') format('svg');
+	font-weight: bold;
+}
+
+
+
+
