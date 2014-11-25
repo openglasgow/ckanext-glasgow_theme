@@ -7141,6 +7141,13 @@ textarea {
     top: 2px;
 }
 
+.icon-future {
+    background: url("/images/icon-future.png") no-repeat scroll left top / 13px 14px transparent;
+    height: 14px;
+    position: relative;
+    top: 2px;
+}
+
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */
 .icon-glass:before {

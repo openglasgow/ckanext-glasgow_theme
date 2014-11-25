@@ -1,20 +1,22 @@
 {% ckan_extends %}
 
 {% block header %}
+
 {% block header_account %}
+
   <header class="account-masthead">
     <div class="container">
     <div class='future-block'>
       <a href='http://open.glasgow.gov.uk'>
-      {# <img src='/base/images/future/future-cities.png' /></a> #}
+      <img src='/base/images/future/future-cities.png' /></a> 
     </div>
       {% if c.userobj %}
         <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
           <ul class="unstyled">
             <li>
-                <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
-                  {# <img src="/images/icon-future.png" width="13px"/> #}
-                  {# <i class="icon-future"></i> #}
+                 <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
+                  <img src="/images/icon-future.png">
+                  <i class="icon-future"></i>
                 </a>
             </li>
       <li>
@@ -71,9 +73,10 @@
         <nav class="account not-authed">
           <ul class="unstyled">
             <li>
-                <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
-                  <!-- <img src="http://open.glasgow.gov.uk/wp-content/themes/strappress-child/images/icon-future.png" /> -->
-                  {# <i class="icon-future"></i> #}
+             <a href="http://open.glasgow.gov.uk" title="Open Glasgow">
+                  <img src="/images/icon-future.png">
+                  <i class="icon-future"></i>
+                </a>
                 </a>
             </li>
       <li>
@@ -98,6 +101,7 @@
 {% endblock %}
 <header class="masthead">
   {% block header_debug %}
+
   {% if g.debug and not g.debug_supress_header %}
     <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
   {% endif %}
@@ -110,7 +114,7 @@
 
           <h1 id='logo-header'>
             <a href="{{ h.url('home') }}"><span>Data</span>
-            {# <img src='/base/images/future/data-rocket.png' style= "margin-top:15px"/></a> #}
+            <img src='/base/images/future/data-rocket.png' style= "margin-top:15px"/></a>
           </h1>
 
       {% endblock %}
@@ -120,10 +124,13 @@
     <div class="content">
 
       {% block header_site_navigation %}
+
         <nav class="section navigation">
-          <ul class="nav nav-pills">
+          <ul class="nav nav-pills posion">
             {% block header_site_navigation_tabs %}
+            
               {% if h.check_access('approvals_list') %}
+              
               {{ h.build_nav_main(
                 ('search', _('Datasets')),
                 ('organizations_index', _('Organizations')),
@@ -132,15 +139,18 @@
               ) }}
 
               {% else %}
+
               {{ h.build_nav_main(
                 ('search', _('Datasets')),
                 ('organizations_index', _('Organizations')),
                 ('about', _('About')),
               ) }}
               {% endif %}
+
             {% endblock %}
           </ul>
         </nav>
+
       {% endblock %}
 
 

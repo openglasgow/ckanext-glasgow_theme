@@ -1,0 +1,35 @@
+plan of attack
+
+
+need to make http://localhost:8008/ look like http://data.glasgow.gov.uk/
+need to also make sure that any new features from https://okfstagingfe.cloudapp.net/ not present at http://data.glasgow.gov.uk/ get copied over/implemented
+
+
+start with homepage
+
+env/src/ckan/ckan/controllers/home index method
+
+read through HomeController class 
+
+note: the get_group() methos is inside the index method()
+
+then read through the header html, thats the first thing you're gonna sort: the dataset icon
+
+
+$4fe5creening
+
+
+https://twitter.github.io/scala_school/basics.html
+
+super@gccctpecadint.onmicrosoft.com
+
+SSLError: [Errno 1] _ssl.c:510: error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
+
+openssl s_client -showcerts -connect login.windows.net:443
+****
+
+
+1. fix ssl problem
+2. add groups link back to header
+3. groups thumbnail image showing on /groups, but not on homepage
+4. add group otion to create dataset view needs to be put back

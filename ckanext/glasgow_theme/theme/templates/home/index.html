@@ -102,9 +102,11 @@
 
   {% for group in c.groups|sort %}
   {% set url = h.url_for(group.type + '_read', action='read', id=group.name) %}
+  {% set uwot = "uploads/group/" + group.image_url %}
       <div class='group-folder'>
           <a href='{{  url }}'>
-            <img src="{{ group.image_url or '/base/images/placeholder-group.png' }}" alt="{{ group.name }}">
+
+            <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" class="media-image">
             <h2>{{ group.display_name }}</h2>
           </a>
       </div>
