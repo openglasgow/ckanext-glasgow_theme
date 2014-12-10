@@ -1,0 +1,15 @@
+{
+  "name": "jquery.royalslider.min",
+  "_cacheHeaders": {
+    "ETag": "\"2461b58-c9a3-4f7b7810c85c0\"",
+    "Last-Modified": "Wed, 23 Apr 2014 15:37:03 GMT",
+    "Content-Length": "51619",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:2461b58-c",
+  "main": "index.js",
+  "_source": "http://dimsemenov.com/plugins/royal-slider/royalslider/jquery.royalslider.min.js?v=9.3.6ls",
+  "_target": "*",
+  "_originalSource": "http://dimsemenov.com/plugins/royal-slider/royalslider/jquery.royalslider.min.js?v=9.3.6ls",
+  "_direct": true
+}

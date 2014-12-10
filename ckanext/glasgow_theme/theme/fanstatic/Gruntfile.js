@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
         watch: {
             options: {
-                livereload: true,
+                //livereload: true,
             },
             css: {
                 files: ['less/**/*.less'],  
@@ -22,7 +22,8 @@ module.exports = function(grunt) {
           development: {
             options: {
               paths: ["less"],
-              sourceMap: true
+              sourceMap: false,
+              sourceMapFilename: "source.map"
             },
             files: {
               "glasgow_main.css": "less/glasgow_main.less"

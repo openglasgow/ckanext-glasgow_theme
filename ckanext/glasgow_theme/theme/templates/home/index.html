@@ -1,121 +1,189 @@
 {% ckan_extends %}
 
+
+{% resource 'glasgow/js/vendor/jquery.royalslider.min/index.js' %}
+
+
 {# {% extends "page.html" %} #}
 
-{% block subtitle %}{{ _("Welcome") }}{% endblock %}
 
-{% block maintag %}{% endblock %}
+
+
+
 
 {% block content %}
-  <div role="main" class="hero">
-    <div id="content" class="container">
-      {{ self.flash() }}
-      {{ self.primary_content() }}
-    </div>
-  </div>
-  <div class="main homepage">
-    <div class="container">
-      {{ self.secondary_content() }}
-    </div>
-  </div>
-{% endblock %}
-
-{% block primary_content %}
-  <div class="hero-primary module module-popup">
-    <div class="module-content box">
-      {% block home_primary %}
-        <header>
-          <h2>Welcome to <br/> Glasgow data</h2>
-          <div class='title-underline'>&nbsp;</div>
-          {% if g.site_intro_text %}
-          {{ h.render_markdown(g.site_intro_text) }}
-          {% else %}
-            {% block home_primary_content %}
-              <h1 class="page-heading">{% block home_primary_heading %}{{ _("Welcome to CKAN") }}{% endblock %}</h1>
-              <p>
-              {% block home_primary_text %}
-                {% trans %}This is a nice introductory paragraph about CKAN or the site
-                in general. We don't have any copy to go here yet but soon we will
-                {% endtrans %}
-              {% endblock %}
-              </p>
-            {% endblock %}
-          {% endif %}
-        </header>
-      {% endblock %}
-
-	  <!--
-      {% block home_image %}
-        <section class="featured media-overlay">
-          <h2 class="media-heading">{% block home_image_caption %}{{ _("Glasgow: Future City") }}{% endblock %}</h2>
-          {% block home_image_content %}
-            <a class="media-image" href="http://www.google.com">
-              <img src="base/images/featureimage.png" alt="Future City" width="420" height="220" />
-            </a>
-          {% endblock %}
-        </section>
-      {% endblock %}
-	  -->
-    </div>
-  </div>
   
-  <div class="hero-secondary">
-    <div class="hero-secondary-inner">
-      {% block home_secondary_content %}
-          <div class="module module-shallow module-narrow module-dark info box">
-            {% block home_search %}
-              <form class="dataset-search module-content clearfix" method="get" action="{% url_for controller='package', action='search' %}">
-                <h3 class="heading">{{ _("Search Glasgow Data") }}</h3>
-                <span class="control-group search-giant">
-                  <input type="text" class="search" name="q" value="{{ c.q }}" autocomplete="off" placeholder="{{ _('eg. Traffic') }}" />
-                  <button type="submit" value="{{ _('Search') }}">Submit</button>
-                </span>
-              </form>
-            {% endblock %}
-          </div>
-      {% endblock %}
-    </div>
-  </div>
 
-  <!-- Most Popular Tags Section -->
-  <div class="hero-popular-tags">
-    <div class="hero-popular-tags-inner">
-          <div class="module module-shallow module-narrow module-dark info box">
-                    {% block home_tags %}
-                      <div class="tags module-content">
-                  <h3 class="heading">{{ _('Popular Tags') }}</h3>
-        <div class='tagBox'>
-                        {% set tags = h.get_facet_items_dict('tags', limit=16) %}
-                        {% for tag in tags %}
-                          <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
-                        {% endfor %}
-        </div>
-                      </div>
-                    {% endblock %}
-          </div>
-    </div>
-  </div>
-  
+
+<section class="hp-hero topbar-push">
+  <h1>Bold data benefit statement tied to 6 user groups. Change on load.</h1>
+  <a href="" class="btn">See the data</a>
+</section>
+
+<section class="hp-primary welcome">
+  <div class="hp-primary-content">
+    <h2>Welcome to Data Launchpad.</h2>
+    <img src="/images/rocket.png" alt="welcome to data launchpad">
+    <p>
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.
+    </p>
+    <a href="" class="btn">Learn More</a>
+    <dl class=" ">
+      <dt>Data Sets Total</dt>
+      <dd>1120</dd>
+
+      <dt>Organisations</dt>
+      <dd>1120</dd>
+
+      <dt>This Month</dt>
+      <dd>1120</dd>
+    </dl>
+</section>
+
+
+<section class="hp-secondary discover">
+  <h2>
+    Discover Data, Rediscover Glasgow.
+  </h2>
+  <p>
+    Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+  </p>
+</section>
+
+
+
+<section class="hp-linkout datastories">
+  <ul class="block-grid-3">
+    <li class="story-linkout story-yellow">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+
+    <li class="story-linkout story-orange">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+
+    <li class="story-linkout story-pink">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+
+    <li class="story-linkout story-blue">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+
+    <li class="story-linkout story-red">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+
+
+    <li class="story-linkout story-green">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn">Read the story</a>
+    </li>
+  </ul>
+</section>
+
+
+<section class="hp-secondary journey">
+  <h2>
+    Start your data journey
+  </h2>
+  <p>
+    Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+  </p>
+</section>
+
+<section class="hp-linkout datastories">
+  <ul class="block-grid-3">
+    <li class="story-linkout story-blue">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn btw-white">Start</a>
+    </li>
+
+    <li class="story-linkout story-green">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn btw-white">Start</a>
+    </li>
+
+
+    <li class="story-linkout story-pink">
+        <img src="images/icon.png" alt="story 1 icon" />
+        <h3>Story 1 name</h3>
+        <p>
+          Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
+        </p>
+        <a href="#" class="btn btw-white">Start</a>
+    </li>
+  </ul>
+</section>
+
+<section class="hp-primary revolution">
+  <div class="hp-primary-content">
+    <h2>Be part of the data revolution.</h2>
+    <img src="/images/plus.png" alt="data revolution">
+    <p>
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.
+    </p>
+    <a href="" class="btn">Learn about contributing data</a>
+    <a href="" class="btn">Add Your Data</a>
+    
+</section>
+
+
+
+<section class="hp-primary safety">
+  <div class="hp-primary-content">
+    <h2>Keeping you and your data safe.</h2>
+    <img src="/images/compass.png" alt="data safety ">
+    <p>
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.
+    </p>
+    <a href="" class="btn">Learn more</a>
+    <a href="" class="btn">try it now</a>
+    
+</section>
+
+
+
+
 {% endblock %}
 
-{% block secondary_content %}
-
-  {% for group in c.groups|sort %}
-  {% set url = h.url_for(group.type + '_read', action='read', id=group.name) %}
-  {% set uwot = "uploads/group/" + group.image_url %}
-      <div class='group-folder'>
-          <a href='{{  url }}'>
-
-            <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" class="media-image">
-            <h2>{{ group.display_name }}</h2>
-          </a>
-      </div>
-  {% endfor %}
-
-  <!-- Show data stories to be displayed -->
-  {# {% snippet 'snippets/data_stories.html',stories=c.stories %} #}
-
-{% endblock %}
 
 
 {# Remove the toolbar. #}
