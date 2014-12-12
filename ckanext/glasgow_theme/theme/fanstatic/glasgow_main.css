@@ -9279,7 +9279,7 @@ iframe {
   background-color: #e0e0e0;
 }
 .module-narrow .nav-item > a {
-  color: #e5007d;
+  color: #e9004b;
   font-size: 16px;
   font-weight: 100;
   padding-left: 30px;
@@ -9295,6 +9295,11 @@ iframe {
 .nav-facet .nav-item.active > a:after {
   right: auto;
   left: 5px;
+}
+.dataset-info-title {
+  color: #e9004b;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 .dataset-organisation {
   font-weight: 100;
@@ -9405,6 +9410,9 @@ a.badge:focus {
 }
 .dataset-resources li a {
   text-transform: uppercase;
+}
+.breadcrumb {
+  display: none;
 }
 /*
 
@@ -9633,7 +9641,7 @@ a.badge:focus {
   margin-right: auto;
 }
 .hp-secondary h2 {
-  color: #e5007d;
+  color: #e9004b;
   font-size: 79px;
   line-height: 84px;
   font-weight: 700;
