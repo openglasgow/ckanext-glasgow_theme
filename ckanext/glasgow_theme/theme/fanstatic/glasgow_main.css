@@ -8152,6 +8152,10 @@ iframe {
   font-weight: bold;
   font-style: 18px;
 }
+.splitter-zz {
+  border-bottom: 1px dotted #dddddd;
+  background-color: #e9004b;
+}
 .container {
   width: 98%;
   margin: 0 auto;
