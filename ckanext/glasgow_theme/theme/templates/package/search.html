@@ -2,6 +2,23 @@
 {% extends "page.html" %}
 {% import 'macros/form.html' as form %}
 
+{# This should be in the controller but modifying existing setup for now - DW #}
+{% set facets = {
+  'fields': c.fields_grouped,
+  'search': c.search_facets,
+  'titles': c.facet_titles,
+  'translated_fields': c.translated_fields,
+  'remove_field': c.remove_field }
+%}
+
+{% set sorting = [
+  (_('Relevance'), 'score desc, metadata_modified desc'),
+  (_('Name Ascending'), 'title_string asc'),
+  (_('Name Descending'), 'title_string desc'),
+  (_('Last Modified'), 'metadata_modified desc'),
+  (_('Popular'), 'views_recent desc') if g.tracking_enabled else (false, false) ]
+%}
+
 {% block subtitle %}{{ _("Datasets") }}{% endblock %}
 
 {% block toolbar %}
@@ -11,22 +28,8 @@
 
 {% block pre_primary %}
   {% block form %}
-  
-    {% set facets = {
-      'fields': c.fields_grouped,
-      'search': c.search_facets,
-      'titles': c.facet_titles,
-      'translated_fields': c.translated_fields,
-      'remove_field': c.remove_field }
-    %}
-    {% set sorting = [
-      (_('Relevance'), 'score desc, metadata_modified desc'),
-      (_('Name Ascending'), 'title_string asc'),
-      (_('Name Descending'), 'title_string desc'),
-      (_('Last Modified'), 'metadata_modified desc'),
-      (_('Popular'), 'views_recent desc') if g.tracking_enabled else (false, false) ]
-    %}
-    {% snippet 'snippets/search_form.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
+
+    {% snippet 'snippets/search_form.html', type='dataset', query=c.q, error=c.query_error, fields=c.fields %}
   {% endblock %}
 {% endblock %}
 
@@ -36,10 +39,14 @@
 
       {% block search_title %}
 
-          <h2 style = "margin-top: 0; border-bottom: 1px solid #ddd">{% snippet 'snippets/search_result_text.html', query=c.q, count=c.page.item_count, type='dataset' %}</h2>
+          <h2 style = "margin: 0 auto;">{% snippet 'snippets/search_result_text.html', query=c.q, count=c.page.item_count, type='dataset' %}</h2>
 
       {% endblock %}
-
+        
+      {% block search_config_panel %}
+          {% snippet 'snippets/search_config_panel.html', sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params %}
+      {% endblock %}
+      
       {% block package_search_results_list %}
         {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
       {% endblock %}
