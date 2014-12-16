@@ -85,7 +85,11 @@ Example:
       {# {% if package.licence_title %} #}
               <div class="dataset-license-container">
                 <h4 class="dataset-info-title">License</h4>
-                {{package.license_title}}
+                {% if package.license_url %}
+                  <a href = {{package.license_url}}>{{package.license_title}}</a>
+                {% else %}
+                  {{package.license_title}}
+                {% endif %}
               </div>
        {#   {% endif %} #}
 

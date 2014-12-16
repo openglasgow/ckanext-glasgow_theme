@@ -3959,7 +3959,7 @@ a.tag:hover {
 }
 .module-content:first-child {
   margin-top: 0;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 .module-content:last-child {
   margin-bottom: 0;
@@ -5536,7 +5536,7 @@ textarea {
 .toolbar {
   *zoom: 1;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 5px 0;
   font-family: "FutureCity", 'Gibson-Light';
 }
@@ -8488,7 +8488,7 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   padding: 1em 0.6em;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 16px;
   color: #555555;
   -webkit-border-radius: 0px;
@@ -9371,7 +9371,7 @@ legend {
   font-size: 20px;
 }
 .filters {
-  padding-top: 80px;
+  padding-top: 0px;
 }
 #waad-login-link {
   display: block;
