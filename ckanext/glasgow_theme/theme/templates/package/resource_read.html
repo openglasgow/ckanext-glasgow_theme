@@ -117,3 +117,7 @@
  {{ super() }}
 {% endblock %}
 
+    {% block data_preview %}
+        {{ h.resource_preview(c.resource, c.package) }}
+      {% endblock %}
+

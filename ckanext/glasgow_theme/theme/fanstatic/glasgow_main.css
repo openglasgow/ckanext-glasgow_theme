@@ -1354,7 +1354,7 @@ button.close {
   /* IE7 inline-block hack */
   *zoom: 1;
   padding: 4px 12px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
