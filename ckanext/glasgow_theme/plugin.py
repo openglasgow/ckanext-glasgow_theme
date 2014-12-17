@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckanext.glasgow_theme.helpers.theme_helpers import homepage_items
 
 
 class GlasgowThemePlugin(plugins.SingletonPlugin):
@@ -8,6 +9,11 @@ class GlasgowThemePlugin(plugins.SingletonPlugin):
     '''
     # Declare that this class implements IConfigurer.
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.ITemplateHelpers)
+    
+    def get_helpers(self):
+      
+      return {"homepage_items":homepage_items()}
     
     def update_config(self, config):
 
@@ -20,5 +26,6 @@ class GlasgowThemePlugin(plugins.SingletonPlugin):
         # Add this plugin's public dir to CKAN's extra_public_paths, so
         # that CKAN will use this plugin's custom static files.
         toolkit.add_public_directory(config, 'theme/public')
+        
         
         toolkit.add_resource('theme/fanstatic', 'glasgow')

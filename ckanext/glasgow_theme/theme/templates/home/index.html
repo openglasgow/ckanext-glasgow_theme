@@ -28,16 +28,20 @@
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.
           </p>
           <a href="" class="btn">Learn More</a>
-          <dl class="fp-stats">
-            <dt>Data Sets Total</dt>
-            <dd>1120</dd>
+          
+          <div class="fp-stats">
+            <h1>A view inside:</h1>
+            <dl>
+              <dt>Data Sets</dt>
+              <dd>{{  h.homepage_items.package_count() }}</dd>
 
-            <dt>Organisations</dt>
-            <dd>1120</dd>
+              <dt>Organisations</dt>
+              <dd>{{  h.homepage_items.organization_count() }}</dd>
 
-            <dt>This Month</dt>
-            <dd>1120</dd>
-          </dl>
+              <dt>Edited this Month</dt>
+              <dd>{{  h.homepage_items.this_month() }}</dd>
+            </dl>
+          </div>
       </section>
 
 
@@ -46,7 +50,10 @@
           Discover Data, Rediscover Glasgow.
         </h2>
         <p>
-          Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+          
+          Placeholder text for rediscover Glasgow
+          
+          
         </p>
       </section>
 
