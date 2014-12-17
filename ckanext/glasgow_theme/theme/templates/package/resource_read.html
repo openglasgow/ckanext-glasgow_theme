@@ -1,15 +1,6 @@
 {% ckan_extends %}
 
-  {% block resource_actions_inner %}
-    <li>
-      <a class="btn" href="{% url_for controller='ckanext.glasgow.controllers.dataset:DatasetController', action='resource_versions', dataset=pkg.id, resource=res.id, version=None %}">
-        <i class="icon-file"></i>
-        {{ _('Versions') }}
-      </a>
-  </li>
 
-  {{ super() }}
-{% endblock %}
 
   {% block resource_additional_information %}
     {% if res %}
@@ -89,3 +80,44 @@
       </section>
     {% endif %}
   {% endblock %}
+
+  {% block resource_actions_inner %}
+ 
+{% endblock %}
+
+  {% block secondary_content %}
+     {% if h.check_access('package_update', {'id':pkg.id }) %}
+              {% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
+            {% endif %}
+            {% if res.url %}
+              
+                <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+                  {% if res.resource_type in ('listing', 'service') %}
+                    <i class="icon-eye-open"></i> {{ _('View') }}
+                  {% elif  res.resource_type == 'api' %}
+                    <i class="icon-key"></i> {{ _('API Endpoint') }}
+                  {% elif not res.can_be_previewed %}
+                    <i class="icon-external-link"></i> {{ _('Go to resource') }}
+                  {% else %}
+                    <i class="icon-download"></i> {{ _('Download') }}
+                  {% endif %}
+                </a>
+              
+            {% endif %}
+            {% if 'datastore' in g.plugins %}
+              {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=c.datastore_api %}</li>
+            {% endif %}
+                
+      <a class="btn" href="{% url_for controller='ckanext.glasgow.controllers.dataset:DatasetController', action='resource_versions', dataset=pkg.id, resource=res.id, version=None %}">
+        <i class="icon-file"></i>
+        {{ _('Versions') }}
+      </a>
+  </li>
+
+ {{ super() }}
+{% endblock %}
+
+    {% block data_preview %}
+        {{ h.resource_preview(c.resource, c.package) }}
+      {% endblock %}
+
