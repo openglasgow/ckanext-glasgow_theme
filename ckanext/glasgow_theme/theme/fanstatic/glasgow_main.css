@@ -9605,7 +9605,7 @@ a.badge:focus {
 .hp-hero h1 {
   color: #e9004b;
   font-weight: 700;
-  font-size: 90px;
+  font-size: 60px;
   line-height: 1.1em;
   max-width: 1001px;
   margin: 90px 0px 72px 117px;
@@ -9624,13 +9624,13 @@ a.badge:focus {
 .hp-primary h2 {
   color: #ffdd00;
   font-weight: 700;
-  font-size: 79px;
+  font-size: 60px;
   line-height: 1.1em;
   max-width: 602px;
   margin-bottom: 40px;
 }
 .hp-primary .hp-primary-content {
-  padding: 90px 0px 107px 117px;
+  padding: 60px 0px 107px 117px;
   position: relative;
 }
 .hp-primary p {
@@ -9652,7 +9652,8 @@ a.badge:focus {
 .hp-primary img {
   position: absolute;
   top: 20%;
-  right: 117px;
+  right: 490px;
+  width: 300px;
 }
 .hp-primary.welcome {
   background-image: url('../img/launch.jpg');
@@ -9664,6 +9665,9 @@ a.badge:focus {
   background-image: url('../img/launch.jpg');
 }
 .fp-stats {
+  position: absolute;
+  top: 300px;
+  right: 10px;
   max-width: 339px;
   overflow: auto;
 }
