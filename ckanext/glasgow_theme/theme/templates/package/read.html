@@ -4,7 +4,28 @@
 
 {% set pkg = c.pkg_dict %}
 
+{% block pre_primary %}
+  <div id="chart-container">
+    
+    <canvas id="myChart" min-height="600px" max-height="1000px" >
+      
+    </canvas>
+    
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  
+  
+  </script>
+{% endblock %}
+
 {% block primary_content_inner %}
+
+  
+  
+  
+  
+  
   {{ super() }}
   {% block package_description %}
     {% if pkg.private %}
@@ -184,4 +205,52 @@
 </section>
   {% endblock %}
 
+  <script src="http://www.chartjs.org/assets/Chart.min.js"></script>
+  
+  
+  <script>
+  
+  var options = {}
+  var data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+          {
+              label: "My First dataset",
+              fillColor: "rgba(220,220,220,0.2)",
+              strokeColor: "#e9004b",
+              pointColor: "#00c4b3",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: [65, 59, 80, 81, 56, 55, 40]
+          },
+          {
+              label: "My Second dataset",
+              fillColor: "#e9004b",
+              strokeColor: "#e5007d",
+              pointColor: "#00a0df",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: [28, 48, 40, 19, 86, 27, 90]
+          }
+      ]
+  };
+  
+  
+  function chartsize (){
+    chart = jQuery("#myChart");
+    container = jQuery("#chart-container");
+  
+    chart.attr('width', container.width());
+    chart.attr('height', container.height());
+    
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Line(data, options);
+  };
+  chartsize()
+  jQuery(window).resize(chartsize)
+  </script>
+
 {% endblock %}
+
