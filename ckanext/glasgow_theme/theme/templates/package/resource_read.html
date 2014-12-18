@@ -108,7 +108,10 @@
               {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=c.datastore_api %}</li>
             {% endif %}
                 
-     
+      <a class="btn" href="{% url_for controller='ckanext.glasgow.controllers.dataset:DatasetController', action='resource_versions', dataset=pkg.id, resource=res.id, version=None %}">
+        <i class="icon-file"></i>
+        {{ _('Versions') }}
+      </a>
   </li>
 
  {{ super() }}
