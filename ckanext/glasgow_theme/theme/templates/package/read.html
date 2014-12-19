@@ -7,9 +7,7 @@
 {% block pre_primary %}
   <div id="chart-container">
     
-    <canvas id="myChart" min-height="600px" max-height="1000px" >
-      
-    </canvas>
+    <canvas id="myChart" min-height="600px" max-height="1000px" ></canvas>
     
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -205,7 +203,10 @@
 </section>
   {% endblock %}
 
+
   <script src="https://cdn.rawgit.com/nnnick/Chart.js/master/Chart.min.js"></script>
+
+
   
   
   <script>
@@ -226,7 +227,7 @@
           },
           {
               label: "My Second dataset",
-              fillColor: "#e9004b",
+              fillColor: "rgba(233, 0, 75, 0.2)",
               strokeColor: "#e5007d",
               pointColor: "#00a0df",
               pointStrokeColor: "#fff",
