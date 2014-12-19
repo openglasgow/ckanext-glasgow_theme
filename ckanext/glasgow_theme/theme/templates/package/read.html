@@ -11,10 +11,7 @@
     
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script>
-  
-  
-  </script>
+
 {% endblock %}
 
 {% block primary_content_inner %}
@@ -209,8 +206,68 @@
   <script>
   
   var options = {}
-  var data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+  
+  function load_script(src_url) {
+   s = document.createElement("script");
+   s.src = src_url;
+   document.getElementsByTagName("head")[0].appendChild(s);
+  }
+  
+  var column_x = "Ward Name";
+  var column_y = "Born outside the UK: Total";
+
+  function get_data(file_url) {
+    console.log(file_url)
+    var api_url = "http://jsonpdataproxy.appspot.com/?callback=build_graph&max-results=100&type=csv";
+    api_url += "&url=" + encodeURIComponent(file_url);
+    
+    console.log(api_url)
+
+    load_script(api_url);
+  }
+
+  function find_column(fields, name) {
+    console.log(fields)
+    var column_index = NaN;
+    jQuery(fields).each(function(i, v) {
+      if(v == name) {
+        columm_index = i;
+      }
+    })
+
+    return columm_index;
+  }
+
+  function load_graph() {
+    if(column_x != "" && column_y != "") {
+      get_data("http://data.glasgow.gov.uk/storage/f/2014-11-04T11%3A23%3A47.294Z/cob-by-age-of-arrival-uk.csv");
+    }
+  }
+  
+  var chart_data = {}
+
+  function build_graph(data) {
+    
+    console.log(data)
+
+    var x = find_column(data['fields'], column_x);
+    var y = find_column(data['fields'], column_y);
+
+    data_x = [];
+    data_y = [];
+
+    jQuery(data["data"]).each(function(index, row) {
+      if(jQuery.inArray(row[x], data_x) != -1) {
+        new_val = parseInt(data_y[jQuery.inArray(row[x], data_x)]) + parseInt(row[y]);
+        data_y[jQuery.inArray(row[x], data_x)] = new_val;
+      } else {
+        data_x.push(row[x]);
+        data_y.push(row[y]);
+      }
+    });
+
+    chart_data = {
+      labels: data_x,
       datasets: [
           {
               label: "My First dataset",
@@ -220,21 +277,14 @@
               pointStrokeColor: "#fff",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(220,220,220,1)",
-              data: [65, 59, 80, 81, 56, 55, 40]
-          },
-          {
-              label: "My Second dataset",
-              fillColor: "rgba(233, 0, 75, 0.2)",
-              strokeColor: "#e5007d",
-              pointColor: "#00a0df",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(151,187,205,1)",
-              data: [28, 48, 40, 19, 86, 27, 90]
+              data: data_y
           }
       ]
-  };
+    };
+    chartsize()
+  }
   
+  load_graph()
   
   function chartsize (){
     chart = jQuery("#myChart");
@@ -244,9 +294,10 @@
     chart.attr('height', container.height());
     
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(data, options);
+    var myLineChart = new Chart(ctx).Line(chart_data, options);
   };
-  chartsize()
+  
+
   jQuery(window).resize(chartsize)
   </script>
 
