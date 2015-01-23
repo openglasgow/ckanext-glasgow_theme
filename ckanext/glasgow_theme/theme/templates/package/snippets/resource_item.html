@@ -1,19 +1,8 @@
 {% ckan_extends %}
 
-{% block resource_item_explore_links %}
-{{ super() }}
-<li>
-  <a href="{% url_for controller='ckanext.glasgow.controllers.dataset:DatasetController', action='resource_versions', dataset=pkg.id, resource=res.id, version=None %}">
-    <i class="icon-file"></i>
-    {{ _('Versions') }}
+  {% block resource_item_title %}
+  <a class="heading" href="{{ url }}" title="{{ res.name or res.description }}">
+    {{ h.resource_display_name(res) | truncate(100) }}<span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
+    {{ h.popular('views', res.tracking_summary.total, min=10) }}
   </a>
-</li>
-{% if h.check_access('file_version_request_create') %}
-<li>
-  <a href="{% url_for controller='ckanext.glasgow.controllers.dataset:DatasetController', action='resource_version_new', dataset=pkg.id, resource=res.id %}">
-    <i class="icon-file"></i>
-    {{ _('Add New Version') }}
-  </a>
-</li>
-{% endif %}
-{% endblock %}
+  {% endblock %}

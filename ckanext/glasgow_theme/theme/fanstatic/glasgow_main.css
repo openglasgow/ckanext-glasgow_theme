@@ -9317,13 +9317,17 @@ legend + .control-group {
 }
 .dataset-item {
   border-bottom: 1px solid #444444;
-  padding-bottom: 2em;
-  margin-bottom: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
 }
 .dataset-info-title {
-  color: #e9004b;
   text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.dataset-info-content {
   font-weight: 100;
+  margin-bottom: 20px;
 }
 .info-title {
   color: #e9004b;
@@ -9362,7 +9366,10 @@ legend + .control-group {
 .dataset-license-container,
 .dataset-resources-container {
   float: left;
-  padding-left: 2em;
+  padding-left: .8em;
+  position: block;
+  position: inline-block;
+  width: 140px;
 }
 .section-heading,
 .page-heading,
@@ -9651,9 +9658,9 @@ a.badge:focus {
 }
 .hp-primary img {
   position: absolute;
-  top: 25%;
-  right: 515px;
-  width: 300px;
+  top: 15%;
+  right: 275px;
+  width: 450px;
 }
 .hp-primary.welcome {
   background-image: url('../img/launch.jpg');
@@ -9724,10 +9731,14 @@ a.badge:focus {
   font-size: 20px;
   line-height: 28px;
   font-weight: 100;
-  margin-bottom: 120px;
+  margin-bottom: 30px;
 }
 .hp-secondary.journey h2 {
   max-width: 900px;
+}
+.hp-secondary img {
+  width: 45px;
+  margin-bottom: 30px;
 }
 .hp-linkout {
   background-color: #000000;

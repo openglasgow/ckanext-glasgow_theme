@@ -70,15 +70,17 @@ Example:
             {% block resources_outer %}
             <div class="dataset-resources-container">
               <h4 class="dataset-info-title">File Types</h4>
-              <ul class="dataset-resources unstyled">
-                {% block resources_inner %}
-                  {% for resource in h.dict_list_reduce(package.resources, 'format') %}
-                  <li>
-                    <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}" class="label" data-format="{{ resource.lower() }}">{{ resource }}</a>
-                  </li>
-                  {% endfor %}
-                {% endblock %}
-              </ul>
+                <div class="dataset-info-content">
+                  <ul class="dataset-resources unstyled">
+                    {% block resources_inner %}
+                      {% for resource in h.dict_list_reduce(package.resources, 'format') %}
+                      <li>
+                        <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}" class="label" data-format="{{ resource.lower() }}">{{ resource }}</a>
+                      </li>
+                      {% endfor %}
+                    {% endblock %}
+                  </ul>
+                </div>
             </div>
             {% endblock %}
           {% endif %}
@@ -90,7 +92,7 @@ Example:
           {% if package.license_url %}
             <a href = {{package.license_url}}>{{package.license_title}}</a>
           {% else %}
-            {{package.license_title|truncate(30)}}
+            <div class="dataset-info-content">{{package.license_title|truncate(15)}}</div>
           {% endif %}
         </div>
          {#   {% endif %} #}
@@ -98,7 +100,11 @@ Example:
           {#  {% if package.metadate_created %} #}
         <div class="dataset-date-container">
           <h4 class="dataset-info-title">Date Added</h4>
-          {{h.render_datetime(package.metadata_created)}}
+          <div class="dataset-info-content">{{h.render_datetime(package.metadata_created)}}</div>
+          
+          
+          <h4 class="dataset-info-title">Visualisation</h4>
+            <div class="dataset-info-content">no</div>
         </div>
            {# {% endif %} #}
            

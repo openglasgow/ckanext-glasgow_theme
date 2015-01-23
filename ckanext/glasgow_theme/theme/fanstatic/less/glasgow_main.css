@@ -2939,9 +2939,11 @@ input[type="submit"].btn.btn-mini {
 }
 .nav {
   margin-left: 0;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   list-style: none;
 }
+
+
 .nav > li > a {
   display: block;
 }
@@ -8525,6 +8527,7 @@ textarea {
 .masthead .navigation {
   margin-right: 20px;
 }
+
 .masthead .navigation .nav-pills {
   margin-bottom: 0;
 }
