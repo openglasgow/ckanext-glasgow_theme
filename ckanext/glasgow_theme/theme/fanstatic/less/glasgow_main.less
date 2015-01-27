@@ -3969,13 +3969,12 @@ a.tag:hover {
   */
 }
 .module {
-  margin: 20px 0;
+  margin: 0px 0;
 }
 .module-heading {
   *zoom: 1;
   margin: 0;
   padding: 7px 25px;
-  font-size: 14px;
   line-height: 1.3;
   background-color: #374651;
   border-top: 1px solid #dddddd;
@@ -4001,6 +4000,19 @@ a.tag:hover {
 .module-heading .action:hover {
   color: #444444;
 }
+
+.module-heading .title{
+	background-color:#adadad;
+	font-weight:300;
+	font-size:30px;
+}
+
+.module-heading .content{
+	background-color:#adadad;
+	font-weight:100;
+	font-size:15px;
+}
+
 .module-content {
   padding: 0 25px;
   margin: 20px 0;
@@ -4023,7 +4035,7 @@ a.tag:hover {
   border-top-width: 0;
 }
 .module:last-child {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .module-footer {
   padding: 7px 25px 7px;
@@ -4175,12 +4187,7 @@ a.tag:hover {
   margin-bottom: 10px;
 }
 
-.package-meta-info{
-  float:right;
-  width:50%;
-  border-left: 1px solid #ddd;
 
-}
 .module-resource {
   background-color: #ffffff;
   border-bottom: 1px solid #dddddd;
@@ -4539,9 +4546,9 @@ margin-top:0px;
   clear: both;
 }
 .nav-simple > li {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.1666666666666667em;
-  padding: 7px 25px;
+  padding: 5px 15px;
   border-bottom: 1px dotted #dddddd;
 }
 .nav-simple > li:last-of-type {
@@ -4553,10 +4560,10 @@ margin-top:0px;
 }
 .nav-item > a {
   color: #333333;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 20px;
-  margin: -7px -25px;
-  padding: 7px 25px;
+  margin: -5px -15px;
+  padding: 5px 15px;
 }
 .nav-item.active {
   background-color: #f6f6f6;
@@ -5501,17 +5508,20 @@ textarea {
 }
 
 .resource-list {
-  margin: 0;
+  margin: -10px 0px 0px 0px;
   list-style: none;
-  margin: -10px -10px 10px -10px;
+  clear:both;
+  
 }
 .resource-item {
   position: relative;
-  padding: 10px 10px 10px 60px;
+  padding: 15px 0px 0px 60px;
   margin-bottom: 0px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  min-height:70px;
+  clear:both;
 }
 .resource-item:hover {
   background-color: #eeeeee;
@@ -5724,9 +5734,8 @@ textarea {
 }
 .page-header {
   position: relative;
-  border-bottom: 1px solid #dddddd;
   background-color: #e9004b;
-  height: 41px;
+  color: #fff;
   -webkit-border-radius: 0 3px 0 0;
   -moz-border-radius: 0 3px 0 0;
   border-radius: 0 3px 0 0;
@@ -8323,6 +8332,7 @@ background-color: #e9004b;
 @blue: #00a0df;
 @green: #00c4b3;
 @red:  #e9004b;
+@light-red: #FA999F;
 
 
 

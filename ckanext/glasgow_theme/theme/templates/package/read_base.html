@@ -8,40 +8,128 @@
   {% endif %}
 {% endblock -%}
 
-{% block content_primary_nav %}
-  {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
-  {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
-  {% if h.check_access('package_update', {'id':pkg.id }) %}
-    {{ h.build_nav_icon('dataset_change_requests', _('Pending Changes'), dataset_name=pkg.name) }}
-  {% endif %}
+{% block page_header %}
+  <header class="module-content">
+    {# {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }} #}
+    {# {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }} #}
+    {# {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }} #}
+    {# {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }} #}
+    {# {% if h.check_access('package_update', {'id':pkg.id }) %} #}
+    {#   {{ h.build_nav_icon('dataset_change_requests', _('Pending Changes'), dataset_name=pkg.name) }} #}
+    {# {% endif %} #}
+  
+  
+    {% block heading %}
+      <h4 class="dataset-heading">
+        {% block heading_private %}
+          {% if pkg.private %}
+            <span class="dataset-private label label-inverse">
+              <i class="icon-lock"></i>
+              {{ _('Private') }}
+            </span>
+          {% endif %}
+        {% endblock %}
+        {% block heading_title %}
+          {% set title = pkg.title or pkg.name %}
+          {% set truncate = truncate or 180 %}
+          {% set truncate_title = truncate_title or 80 %}
+          {% set title = pkg.title or pkg.name %}
+          {{ pkg.title }}
+
+        {% endblock %}
+        {% block heading_meta %}
+          {% if pkg.get('state', '').startswith('draft') %}
+            <span class="label label-info">{{ _('Draft') }}</span>
+          {% elif pkg.get('state', '').startswith('deleted') %}
+            <span class="label label-important">{{ _('Deleted') }}</span>
+          {% endif %}
+          {{ h.popular('recent views', pkg.tracking_summary.recent, min=10) if pkg.tracking_summary }}
+        {% endblock %}
+      </h4>
+    {% endblock %}
+      
+  </header>
 {% endblock %}
 
 {% block secondary_content %}
-  {% block secondary_help_content %}{% endblock %}
+  <div class="package-info">
+    {% block secondary_help_content %}{% endblock %}
+    
+    <h2 class = "section-heading-red dataset-info"> Information </h2>
+    
+    <section class="module">
+      {% block package_organization %}
+        {% if pkg.organization %}
+          {% set org = h.get_organization(pkg.organization.name) %}
+          {% snippet "snippets/organization.html", organization=org, has_context_title=true %}
+        {% endif %}
+      {% endblock %}
+    </section>
+    
+    <section class="module">
+      <div class="module module-narrow module-shallow context-info">
+        <h2 class="module-heading title">
+          <i class="icon-building"></i>
+          Contact
+          <img src = "/images/FC_DataPortal_ArrowElement-01.png" >
+        </h2>
+        
+        <section class="module-content">
+          Maintainer - {{ pkg.maintainer or '-' }}
+          <br>
+          Maintainer email - {{ pkg.maintainer_email or '-' }}
+          <br>
+          Published on Behalf of - {{ pkg.published_on_behalf_of or '-' }}
+          
+          
+        </section>
+      </div>
+    </section>
+    
+    <section class="module">
+      <div class="module module-narrow module-shallow context-info">
+        <h2 class="module-heading title">
+          <i class="icon-building"></i>
+          Usage instructions
+          <img src = "/images/FC_DataPortal_ArrowElement-01.png" >
+        </h2>
+        
+        <section class="module-content">
+          asdfasdf
+          
+        </section>
+      </div>
+    </section>
+    
+    <section class="module module-narrow module-shallow license">
+      {% block package_license %}
+        {% snippet "snippets/license.html", pkg_dict=pkg %}
+      {% endblock %}
+    </section>
+    
+    <section class="module module-narrow module-shallow license">
+      {% block package_groups %}
+        {% snippet "snippets/group.html", pkg=pkg %}
+      {% endblock %}
+    </section>
 
-  {% block package_info %}
-    {% snippet 'package/snippets/info.html', pkg=pkg %}
-  {% endblock %}
 
-  {% block package_organization %}
-    {% if pkg.organization %}
-      {% set org = h.get_organization(pkg.organization.name) %}
-      {% snippet "snippets/organization.html", organization=org, has_context_title=true %}
-    {% endif %}
-  {% endblock %}
 
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
 
-  {% block package_license %}
-    {% snippet "snippets/license.html", pkg_dict=pkg %}
-  {% endblock %}
+  </div>
+  
+  {# JS #}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  {% block package_groups %}
-    {% snippet "snippets/group.html", pkg=pkg %}
-  {% endblock %}
+  <script>
+    jQuery(".package-info section.module").each(function() {
+        jQuery(this).find("section.module-content").hide();
+    });
+
+    jQuery(".package-info section.module").click(function(){
+        jQuery(this).find("section.module-content").toggle(200);
+        jQuery(this).siblings("section.module-footer").toggle();
+    });
+  </script>
   
 {% endblock %}

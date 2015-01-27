@@ -49,4 +49,24 @@ def homepage_items():
   }
   
   return homepage_items
+
+
+## Adds activity into the context 
+def get_activity(pkg):
   
+  context = {'model': model, 'session': model.Session,
+             'user': c.user or c.author, 'for_view': True,
+             'auth_user_obj': c.userobj}
+  data_dict = {'id': id}
+  try:
+      c.pkg_dict = logic.get_action('package_show')(context, data_dict)
+      c.pkg = context['package']
+      c.package_activity_stream = get_action(
+              'package_activity_list_html')(context,
+                      {'id': c.pkg_dict['id']})
+      c.related_count = c.pkg.related_count
+  except NotFound:
+      abort(404, _('Dataset not found'))
+  except NotAuthorized:
+      abort(401, _('Unauthorized to read dataset %s') % id)
+    

@@ -91,7 +91,7 @@
       {% endblock %}
 
 <div class="filters">
-  <h2 class="section-heading"> Filters </h2>
+  <h2 class="section-heading-red"> Filters </h2>
   <div>
     {% for facet in c.facet_titles %}
       {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
@@ -99,4 +99,24 @@
   </div>
   <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
 </div>
+
+{# JS #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+  jQuery(".filters section.module > nav").each(function() {
+      jQuery(this).hide();
+      jQuery(this).siblings("p.module-footer").hide();
+  });
+
+  jQuery(".filters section.module > h2.module-heading").click(function(){
+      jQuery(this).siblings("nav").toggle(200);
+      jQuery(this).siblings("p.module-footer").toggle();
+  });
+</script>
+  
 {% endblock %}
+
+
+
+

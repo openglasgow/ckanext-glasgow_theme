@@ -13,7 +13,7 @@ class GlasgowThemePlugin(plugins.SingletonPlugin):
     
     def get_helpers(self):
       
-      return {"homepage_items":homepage_items()}
+      return {"homepage_items":homepage_items(), "activity_stream":}
     
     def update_config(self, config):
 
