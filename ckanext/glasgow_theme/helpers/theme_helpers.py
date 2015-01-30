@@ -11,6 +11,11 @@ from datetime import datetime, timedelta
 
 from ckan.common import _, g, c
 
+NotFound = logic.NotFound
+NotAuthorized = logic.NotAuthorized
+ValidationError = logic.ValidationError
+get_action = logic.get_action
+abort = base.abort
 
 ## Get all packages
 def get_package_count():
@@ -52,7 +57,7 @@ def homepage_items():
 
 
 ## Adds activity into the context 
-def get_activity(pkg):
+def get_activity(id):
   
   context = {'model': model, 'session': model.Session,
              'user': c.user or c.author, 'for_view': True,
@@ -61,10 +66,11 @@ def get_activity(pkg):
   try:
       c.pkg_dict = logic.get_action('package_show')(context, data_dict)
       c.pkg = context['package']
-      c.package_activity_stream = get_action(
-              'package_activity_list_html')(context,
-                      {'id': c.pkg_dict['id']})
+      c.package_activity_stream = get_action('package_activity_list_html')(context, {'id': c.pkg_dict['id']})
       c.related_count = c.pkg.related_count
+      
+      return c.package_activity_stream
+      
   except NotFound:
       abort(404, _('Dataset not found'))
   except NotAuthorized:

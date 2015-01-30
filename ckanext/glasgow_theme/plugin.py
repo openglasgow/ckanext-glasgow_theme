@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckanext.glasgow_theme.helpers.theme_helpers import homepage_items
+from ckanext.glasgow_theme.helpers.theme_helpers import homepage_items, get_activity
+from datetime import datetime
 
 
 class GlasgowThemePlugin(plugins.SingletonPlugin):
@@ -13,7 +14,7 @@ class GlasgowThemePlugin(plugins.SingletonPlugin):
     
     def get_helpers(self):
       
-      return {"homepage_items":homepage_items(), "activity_stream":}
+      return {"homepage_items":homepage_items(), "activity_stream":get_activity }
     
     def update_config(self, config):
 

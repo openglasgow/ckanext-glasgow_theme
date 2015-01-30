@@ -42,7 +42,7 @@
    <h4 class="section-heading-light">Activity</h4>
 
     {% block activity_stream %}
-      {# {{ }} #}
+      {{ h.activity_stream(pkg.id) }}
     {% endblock %}
 
 
@@ -80,7 +80,6 @@
         <th scope="row" class="dataset-label">{{ _('Standard Name') }}</th>
         <td class="dataset-details">{{ pkg.standard_name or '-' }}</td>
      </tr>
-
      <tr>
         <th scope="row" class="dataset-label">{{ _('Standard Version') }}</th>
         <td class="dataset-details">{{ pkg.standard_version or '-' }}</td>
