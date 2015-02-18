@@ -2,29 +2,19 @@
 
 {% set pkg = c.pkg_dict %}
 
-{% block pre_primary %}
-  <div id="chart-container">
-    
-    <canvas id="myChart" min-height="600px" max-height="1000px" ></canvas>
-    
-  </div>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-{% endblock %}
-
 {% block primary_content_inner %}
-  
-  
+
+
   {{ super() }}
   {% block package_description %}
-    
+
     {% if pkg.private %}
       <span class="dataset-private label label-inverse pull-right">
         <i class="icon-lock"></i>
         {{ _('Private') }}
       </span>
     {% endif %}
-    
+
     {% snippet "snippets/package_item_ds_page.html", package=pkg, resources=pkg.resources %}
 
   {% endblock %}
@@ -32,7 +22,7 @@
   {% block package_resources %}
     {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
   {% endblock %}
-  
+
   {# <h4 class="section-heading-light">Approvals</h4> #}
   {#  #}
   {#  {% block versions %} #}
@@ -43,11 +33,11 @@
 
     {% block activity_stream %}
       {{ h.package_activity_stream(pkg.id) }}
-      
+
       <a href="{{h.url_for('dataset_activity', id=pkg.id )}} ">
         See more
       </a>
-      
+
     {% endblock %}
 
 
@@ -90,10 +80,10 @@
         <td class="dataset-details">{{ pkg.standard_version or '-' }}</td>
      </tr>
 
-      
+
     </tbody>
   </table>
-  
+
   {% if pkg.get('extras', []) |length > 1 %}
     <h4 class="section-heading-light">{{ _('Custom Metadata') }}</h4>
     <table class="table table-striped table-bordered table-condensed">
@@ -119,113 +109,5 @@
 
 </section>
   {% endblock %}
-
-
-  <script src="https://cdn.rawgit.com/nnnick/Chart.js/master/Chart.min.js"></script>
-
-
-  
-  
-  <script>
-  
-  var options = {}
-  
-  function load_script(src_url) {
-   s = document.createElement("script");
-   s.src = src_url;
-   document.getElementsByTagName("head")[0].appendChild(s);
-  }
-  
-  var column_x = "Ward Name";
-  var column_y = "Born outside the UK: Total";
-
-  function get_data(file_url) {
-    console.log(file_url)
-    var api_url = "http://jsonpdataproxy.appspot.com/?callback=build_graph&max-results=100&type=csv";
-    api_url += "&url=" + encodeURIComponent(file_url);
-    
-    console.log(api_url)
-
-    load_script(api_url);
-  }
-
-  function find_column(fields, name) {
-    console.log(fields)
-    var column_index = NaN;
-    jQuery(fields).each(function(i, v) {
-      if(v == name) {
-        columm_index = i;
-      }
-    })
-
-    return columm_index;
-  }
-
-  function load_graph() {
-    if(column_x != "" && column_y != "") {
-      get_data("http://data.glasgow.gov.uk/storage/f/2014-11-04T11%3A23%3A47.294Z/cob-by-age-of-arrival-uk.csv");
-    }
-  }
-  
-  var chart_data = {}
-
-  function build_graph(data) {
-    
-    console.log(data)
-
-    var x = find_column(data['fields'], column_x);
-    var y = find_column(data['fields'], column_y);
-
-    data_x = [];
-    data_y = [];
-
-    jQuery(data["data"]).each(function(index, row) {
-      if(jQuery.inArray(row[x], data_x) != -1) {
-        new_val = parseInt(data_y[jQuery.inArray(row[x], data_x)]) + parseInt(row[y]);
-        data_y[jQuery.inArray(row[x], data_x)] = new_val;
-      } else {
-        data_x.push(row[x]);
-        data_y.push(row[y]);
-      }
-    });
-
-    chart_data = {
-      labels: data_x,
-      datasets: [
-          {
-              label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.2)",
-              strokeColor: "#e9004b",
-              pointColor: "#00c4b3",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(220,220,220,1)",
-              data: data_y
-          }
-      ]
-    };
-    chartsize()
-  }
-  
-  load_graph()
-  
-  function chartsize (){
-    chart = jQuery("#myChart");
-    container = jQuery("#chart-container");
-  
-    chart.attr('width', container.width());
-    chart.attr('height', container.height());
-    
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(chart_data, options);
-  };
-  
-
-  jQuery(window).resize(chartsize)
-  
-
-  
-  </script>
-
 {% endblock %}
 
