@@ -62,7 +62,7 @@
       {% block package_search_results_api_inner %}
       <small>
         {% set api_link = h.link_to(_('API'), h.url_for(controller='api', action='get_api', ver=3)) %}
-        {% set api_doc_link = "http://ckan.readthedocs.org/en/latest/api/index.html" %}
+        {% set api_doc_link = "<a href='http://ckan.readthedocs.org/en/latest/api/index.html'>the API docs</a>" %}
         {% if g.dumps_url -%}
           {% set dump_link = h.link_to(_('full {format} dump').format(format=g.dumps_format), g.dumps_url) %}
           {% trans %}
