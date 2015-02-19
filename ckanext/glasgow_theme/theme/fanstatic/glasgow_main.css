@@ -5385,9 +5385,7 @@ textarea {
   text-indent: -900em;
 }
 .control-order-by {
-  position: absolute;
-  right: 25px;
-  top: 100px;
+  display: block;
 }
 .control-order-by label,
 .control-order-by select {
@@ -9450,6 +9448,20 @@ legend {
   font-weight: 400;
   padding: 0.1em 0em;
   color: #4d4d4d;
+}
+.organization-description {
+  float: left;
+}
+.organization-image {
+  float: left;
+}
+.bulk-dataset-list {
+  float: left;
+  width: 550px;
+}
+.bulk-filter-list {
+  float: right;
+  width: 290px;
 }
 .filters {
   padding-top: 0px;

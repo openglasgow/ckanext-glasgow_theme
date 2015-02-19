@@ -6,3 +6,43 @@
   {% resource 'glasgow/glasgow_main.css' %}
 {% endblock %}
 
+{% block scripts %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://rawgit.com/mozilla/localForage/master/dist/localforage.min.js"></script>
+
+
+<script>
+jQuery(document).ready(function(){
+
+   // Loop through all nav panels
+   jQuery(".filters section.module").each(function() {
+       title = jQuery(this).find("h2.module-heading").text().trim();
+
+       localforage.getItem('filters.'+title, function(err, value) {
+           if(!value) {
+               jQuery(this).find("div.module-content").hide();
+           }
+       }.bind(this));
+   });
+
+   jQuery(".filters section.module > h2.module-heading").click(function(){
+       // Is it currently open?
+       title = jQuery(this).text().trim();
+       console.log(title)
+       localforage.getItem('filters.'+title, function(err, value) {
+           console.log(value)
+           if(value) {
+               // We're currently open!
+               jQuery(this).siblings("div.module-content").hide(200);
+               localforage.setItem('filters.'+title, false);
+           } else {
+               // Sorry we're closed
+               jQuery(this).siblings("div.module-content").show(200);
+               localforage.setItem('filters.'+title, true);
+           }
+       }.bind(this));
+   });
+})
+</script>
+{% endblock %}
+

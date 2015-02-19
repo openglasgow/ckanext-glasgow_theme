@@ -2,11 +2,12 @@
 
 {% block subtitle %}{{ _('Organizations') }}{% endblock %}
 
+
 {% block pre_primary %}
-  {% block organizations_search_form %}
-  {% snippet 'snippets/simple_search.html', q=c.q, sort=c.sort_by_selected, placeholder=_('Search organisations...') %}
+  {% block form %}
+    {% snippet 'snippets/search_form.html', type='organisation', query=c.q, error=c.query_error, fields=c.fields, placeholder=('Search organisations...') %}
   {% endblock %}
-{%endblock%}
+{% endblock %}
 
 {% block add_action_content %}
   {% if h.check_access('organization_create') %}

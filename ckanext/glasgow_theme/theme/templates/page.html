@@ -31,9 +31,9 @@
 
           <div class="toolbar">
             {% block toolbar %}
-            
+
                 {# Put anything that comes before the pre_primary block in here #}
-            
+
             {% endblock %}
           </div>
           <div class="wrapper{% block wrapper_class %}{% endblock %}{% if self.secondary()|trim == '' %} no-nav{% endif %}">
@@ -63,10 +63,10 @@
                 {% block primary_content %}
                   {# <article class="module"> #}
                     {% block page_header %}
-                      <header class="module-content page-header">
-
-                          
-                      </header>
+                      {# <header class="module-content page-header"> #}
+                      {#  #}
+                      {#      #}
+                      {# </header> #}
                     {% endblock %}
                     <div class="module-content">
                       

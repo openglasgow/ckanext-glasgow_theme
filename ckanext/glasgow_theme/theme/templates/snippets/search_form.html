@@ -9,10 +9,10 @@
   {% block search_input %}
     <div class="search-input control-group {{ search_class }}">
       <input type="text" class="search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
-      <button type="submit" value="search">
-        <i class="icon-search"></i>
-        <span>{{ _('Submit') }}</span>
-      </button>
+      {# <button type="submit" value="search"> #}
+      {#   <i class="icon-search"></i> #}
+      {#   <span>{{ _('Submit') }}</span> #}
+      {# </button> #}
     </div>
   {% endblock %}
 
@@ -22,4 +22,18 @@
     {%- endif %}
   {% endblock %}
 
-
+  {% block search_sortby %}
+    {% if sorting %}
+      <div class="form-select control-group control-order-by">
+        <label for="field-order-by">{{ _('Order by') }}</label>
+        <select id="field-order-by" name="sort">
+          {% for label, value in sorting %}
+            {% if label and value %}
+              <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        <button class="btn js-hide" type="submit">{{ _('Go') }}</button>
+      </div>
+    {% endif %}
+  {% endblock %}

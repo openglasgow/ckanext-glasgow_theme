@@ -1,6 +1,6 @@
 {% ckan_extends %}
 
-
+  
   {% block facet_list_heading %}
     <h2 class="module-heading">
       
@@ -15,6 +15,7 @@
 
 
     {% block facet_list_items %}
+      <div class="module-content">
             {% with items = items or h.get_facet_items_dict(name) %}
             {% if items %}
               <nav>
@@ -46,4 +47,7 @@
               <p class="module-content empty">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</p>
             {% endif %}
             {% endwith %}
-          {% endblock %}
+        </div>
+    {% endblock %}
+    
+    

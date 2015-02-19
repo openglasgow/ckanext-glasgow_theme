@@ -57,12 +57,13 @@ def homepage_items():
 
 
 ## Adds activity into the context 
-def get_activity(id):
+def get_package_activity(id):
   
   context = {'model': model, 'session': model.Session,
              'user': c.user or c.author, 'for_view': True,
              'auth_user_obj': c.userobj}
   data_dict = {'id': id}
+  
   try:
       c.pkg_dict = logic.get_action('package_show')(context, data_dict)
       c.pkg = context['package']
@@ -75,4 +76,24 @@ def get_activity(id):
       abort(404, _('Dataset not found'))
   except NotAuthorized:
       abort(401, _('Unauthorized to read dataset %s') % id)
-    
+
+
+def get_organization_activity(id):
+
+  context = {'model': model, 'session': model.Session,
+             'user': c.user or c.author, 'for_view': True,
+             'auth_user_obj': c.userobj}
+  data_dict = {'id': id}
+
+  try:
+      c.group_dict = logic.get_action('organization_show')(context, data_dict)
+      
+      c.organization_activity_stream = get_action('organization_activity_list_html')(context, {'id': c.group_dict['id'], 'limit':5})
+      
+
+      return c.organization_activity_stream
+
+  except NotFound:
+      abort(404, _('Dataset not found'))
+  except NotAuthorized:
+      abort(401, _('Unauthorized to read dataset %s') % id)
