@@ -36,6 +36,7 @@
       <i class="icon-sitemap"></i>
       {{ _('My Datasets') }}
     </h2>
+    
     {% if c.user_dict['datasets'] %}
       <ul class="nav nav-simple">
         {% for package in c.user_dict['datasets'] %}
@@ -50,6 +51,18 @@
         <p class="empty">{{ _('You do not have any datasets') }}</p>
       </div>
     {% endif %}
+    
   </div>
+  {% if h.check_access('package_create') %}
+    <div class="page_primary_action">
+      {% link_for _('Add Dataset'), controller='package', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
+    </div>
+  {% endif %}
+  
+  {% if h.check_access('package_create') %}
+    <div class="page_primary_action">
+      {% link_for _('Edit User'), controller='user', action='edit', class_='btn btn-primary', icon='plus-sign-alt' %}
+    </div>
+  {% endif %}
   {% endblock %}
 {% endblock %}

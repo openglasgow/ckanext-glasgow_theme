@@ -3,13 +3,24 @@
 
 {%block secondary_content %}
   <h2></h2>
+    
     {% snippet "snippets/organization.html", organization=c.group_dict, has_context_title=true %}
     <br>
-    <a href="{{ h.url_for('organization_edit', id=c.group_dict.name) }}" class="btn btn-large">Edit</a>
+    <a href="{{ h.url_for('organization_read', id=c.group_dict.name) }}" class="btn btn-large" >
+      <i class="icon-eye-open"></i>View</a>
     
-    <a href="{{ h.url_for('organization_bulk_process', id=c.group_dict.name) }}" class="btn btn-large">Datasets</a>
+    <a href="{{ h.url_for('organization_edit', id=c.group_dict.name) }}" class="btn btn-large">
+      <i class="icon-wrench"></i>Edit</a>
+    
+    <a href="{{ h.url_for('organization_bulk_process', id=c.group_dict.name) }}" class="btn btn-large">
+      <i class="icon-wrench"></i>Datasets</a>
 
-    <a href="{{ h.url_for('organization_members', id=c.group_dict.name) }}" class="btn btn-large">Members</a>
+    <a href="{{ h.url_for('organization_members', id=c.group_dict.name) }}" class="btn btn-large">
+      <i class="icon-wrench"></i>Members</a>
     
-    <a href="{{ h.url_for('organization_pending_members', organization_id=c.group_dict.name) }}" class="btn btn-large">Pending Requests</a>
+    <a href="{{ h.url_for('organization_change_requests', organization_name=c.group_dict.name) }}" class="btn btn-large">
+      <i class="icon-wrench"></i>Change Requests</a>
+      
+    <a href="{{ h.url_for('organization_pending_members', organization_id=c.group_dict.name) }}" class="btn btn-large">
+        <i class="icon-wrench"></i>Membership requests</a>
 {%endblock%}

@@ -14,7 +14,7 @@
       <h3 class="page-heading">
         {% block page_heading %}
           {%- if c.page.item_count -%}
-            {{ c.page.item_count }} datasets{{ _(" found for \"{query}\"").format(query=c.q) if c.q }}
+            Bulk edit
           {%- elif request.params -%}
             {{ _('Sorry no datasets found for "{query}"').format(query=c.q) }}
           {%- else -%}
@@ -22,6 +22,9 @@
           {%- endif -%}
         {% endblock %}
       </h3>
+      <h5 class="section-heading-light">{{ c.page.item_count }} datasets{{ _(" found for \"{query}\"").format(query=c.q) if c.q }}</h5>
+      
+      
       {% block form %}
         {% if c.page.item_count %}
           <form method="POST" data-module="basic-form">

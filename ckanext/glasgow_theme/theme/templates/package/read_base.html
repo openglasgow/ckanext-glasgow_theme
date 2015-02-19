@@ -57,6 +57,13 @@
     
     <h2 class = "section-heading-red dataset-info"> Information </h2>
     
+    {% block manage_button %}
+      {% if h.check_access('package_update', {'id':pkg.id }) %}
+        {% link_for _('Edit Dataset'), controller='package', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
+      {% endif %}
+    {% endblock %}
+    
+    
     <section class="module">
       {% block package_organization %}
         {% if pkg.organization %}

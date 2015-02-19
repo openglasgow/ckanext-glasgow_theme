@@ -9,15 +9,7 @@
     <div class="dataset-heading">{{organization.display_name}}</div>
     
     {% block description %}
-      <div class="organization-image">
-        {% if organization.image_display_url %}
 
-          <a href="{{ url }}">
-            <img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}" width="200" alt="{{ organization.title }}" />
-          </a>
-
-        {% endif %}
-      </div>
       
       <div class="organization-description">
         {% if organization.description %}
@@ -32,12 +24,12 @@
       <div style="clear:left"></div>
     {% endblock %}
     
-    {% block additional_info %}
-      <h4 class="section-heading-light">Additional information</h4>
-      {% block organization_extras %}
-        {% snippet 'snippets/additional_info.html', extras = h.sorted_extras(c.group_dict.extras) %}
-      {% endblock %}
-    {%endblock%}
+    {# {% block additional_info %} #}
+    {#   <h4 class="section-heading-light">Additional information</h4> #}
+    {#   {% block organization_extras %} #}
+    {#     {% snippet 'snippets/additional_info.html', extras = h.sorted_extras(c.group_dict.extras) %} #}
+    {#   {% endblock %} #}
+    {# {%endblock%} #}
     
     {% block groups_search_form %}
       {% set facets = {

@@ -9,6 +9,7 @@
   <div class="control-group">
     <label for="field-private" class="control-label">{{ _('Needs Approval') }}</label>
     <div class="controls">
+
       <select id="field-needs_approval" name="needs_approval">
         {% for option in [('true', _('True')), ('false', _('False'))] %}
         <option value="{{ option[0] }}" {% if option[0] == data.needs_approval|trim %}selected="selected"{% endif %}>{{ option[1] }}</option>

@@ -53,6 +53,7 @@
   <div class="control-group">
     <label for="field-private" class="control-label">{{ _('Needs Approval') }}</label>
     <div class="controls">
+   
       <select id="field-needs_approval" name="needs_approval">
         {% for option in [('true', _('True')), ('false', _('False'))] %}
         <option value="{{ option[0] }}" {% if option[0] == data.needs_approval|trim %}selected="selected"{% endif %}>{{ option[1] }}</option>
@@ -71,26 +72,26 @@
   {{ form.input('tag_string', id='field-tags', label=_('Tags'), placeholder=_('eg. economy, mental health, government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
 
   {# Published on behalf of #}
-  {{ form.input('published_on_behalf_of', label=_('Published on behalf of'), id='field-published_on_behalf_of', value=data.published_on_behalf_of, error=errors.published_on_behalf_of, classes=['control-medium']) }}
+  {# {{ form.input('published_on_behalf_of', label=_('Published on behalf of'), id='field-published_on_behalf_of', value=data.published_on_behalf_of, error=errors.published_on_behalf_of, classes=['control-medium']) }} #}
 
   {# Usage Guidance #}
-  {{ form.input('usage_guidance', label=_('Usage Guidance'), id='field-usage_guidance', value=data.usage_guidance, error=errors.usage_guidance, classes=['control-medium']) }}
+  {# {{ form.input('usage_guidance', label=_('Usage Guidance'), id='field-usage_guidance', value=data.usage_guidance, error=errors.usage_guidance, classes=['control-medium']) }} #}
 
   {# Category #}
-  {{ form.input('category', label=_('Category'), id='field-category', value=data.category, error=errors.category, classes=['control-medium']) }}
+  {# {{ form.input('category', label=_('Category'), id='field-category', value=data.category, error=errors.category, classes=['control-medium']) }} #}
 
   {# Theme #}
-  {{ form.input('theme', label=_('Theme'), id='field-theme', value=data.theme, error=errors.theme, classes=['control-medium']) }}
+  {# {{ form.input('theme', label=_('Theme'), id='field-theme', value=data.theme, error=errors.theme, classes=['control-medium']) }} #}
 
   {# Standard Name #}
-  {{ form.input('standard_name', label=_('Standard Name'), id='field-standard_name', value=data.standard_name, error=errors.standard_name, classes=['control-medium']) }}
+  {# {{ form.input('standard_name', label=_('Standard Name'), id='field-standard_name', value=data.standard_name, error=errors.standard_name, classes=['control-medium']) }} #}
 
   {# Standard Rating #}
   {# TODO: slider or similar #}
-  {{ form.input('standard_rating', label=_('Standard Rating'), id='field-standard_rating', value=data.standard_rating, error=errors.standard_rating, classes=['control-medium']) }}
+  {# {{ form.input('standard_rating', label=_('Standard Rating'), id='field-standard_rating', value=data.standard_rating, error=errors.standard_rating, classes=['control-medium']) }} #}
 
   {# Standard Version #}
-  {{ form.input('standard_version', label=_('Standard Version'), id='field-standard_version', value=data.standard_version, error=errors.standard_version, classes=['control-medium']) }}
+  {# {{ form.input('standard_version', label=_('Standard Version'), id='field-standard_version', value=data.standard_version, error=errors.standard_version, classes=['control-medium']) }} #}
 
   {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
 </fieldset>
