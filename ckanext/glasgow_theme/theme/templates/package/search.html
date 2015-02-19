@@ -58,11 +58,11 @@
 
   {% block package_search_results_api %}
   <section class="module">
-    <div class="module-content">
+    <div class="module-content api-links">
       {% block package_search_results_api_inner %}
       <small>
         {% set api_link = h.link_to(_('API'), h.url_for(controller='api', action='get_api', ver=3)) %}
-        {% set api_doc_link = h.link_to(_('API Docs'), 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version)) %}
+        {% set api_doc_link = "http://ckan.readthedocs.org/en/latest/api/index.html" %}
         {% if g.dumps_url -%}
           {% set dump_link = h.link_to(_('full {format} dump').format(format=g.dumps_format), g.dumps_url) %}
           {% trans %}
