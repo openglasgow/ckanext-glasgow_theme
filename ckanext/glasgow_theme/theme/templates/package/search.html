@@ -41,11 +41,11 @@
           <h2 style = "margin: 0 auto;">{% snippet 'snippets/search_result_text.html', query=c.q, count=c.page.item_count, type='dataset' %}</h2>
 
       {% endblock %}
-        
+
       {% block search_config_panel %}
           {% snippet 'snippets/search_config_panel.html', sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params %}
       {% endblock %}
-      
+
       {% block package_search_results_list %}
         {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
       {% endblock %}
@@ -97,24 +97,7 @@
       {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
     {% endfor %}
   </div>
-  <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
 </div>
-
-{# JS #}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script>
-  jQuery(".filters section.module > nav").each(function() {
-      jQuery(this).hide();
-      jQuery(this).siblings("p.module-footer").hide();
-  });
-
-  jQuery(".filters section.module > h2.module-heading").click(function(){
-      jQuery(this).siblings("nav").toggle(200);
-      jQuery(this).siblings("p.module-footer").toggle();
-  });
-</script>
-  
 {% endblock %}
 
 
