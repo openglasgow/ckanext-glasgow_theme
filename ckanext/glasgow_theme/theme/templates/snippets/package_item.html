@@ -63,7 +63,7 @@ Example:
           {% endif %}
         {% endblock %}
       </div>
-      
+
       <div class="package-meta-info">
         {% block resources %}
           {% if package.resources and not hide_resources %}
@@ -101,13 +101,9 @@ Example:
         <div class="dataset-date-container">
           <h5 class="dataset-info-title">Date Added</h4>
           <div class="dataset-info-content">{{h.render_datetime(package.metadata_created)}}</div>
-          
-          
-          <h5 class="dataset-info-title">Visualisation</h4>
-            <div class="dataset-info-content">no</div>
         </div>
            {# {% endif %} #}
-           
+
         {# end package_meta_info #}
         </div>
     {% endblock %}

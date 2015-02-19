@@ -21,20 +21,20 @@
             <p class="empty">{{ _("This dataset has no description") }}</p>
           {% endif %}
         {% endblock %}
-        
+
       {# TODO - fix these in the layouts - header bar #}
        <br>
         <div class="dataset-date-container">
-          <h5 class="dataset-info-title">Openness Rating</h5>  
+          <h5 class="dataset-info-title">Openness Rating</h5>
           <div class="dataset-info-content">{{ h.show_int_value(package.openness_rating) }}</div>
-    
+
         </div>
-        <div class="dataset-date-container"> 
-          <h5 class="dataset-info-title">Quality Rating</h5>  
+        <div class="dataset-date-container">
+          <h5 class="dataset-info-title">Quality Rating</h5>
           <div class="dataset-info-content">{{ h.show_int_value(package.quality_rating) }}</div>
         </div>
       </div>
-      
+
       <div class="package-meta-info">
         {% block resources %}
           {% if package.resources and not hide_resources %}
@@ -71,23 +71,13 @@
         <div class="dataset-date-container">
           <h5 class="dataset-info-title">Date Added</h4>
           <div class="dataset-info-content">{{h.render_datetime(package.metadata_created)}}</div>
-          
-          
-          <h5 class="dataset-info-title">Visualisation</h5>
-            {% if package.visualization %}
-              <div class="dataset-info-content">Yes</div>
-            {% else %}
-              <a href="/dataset/{{ h.url_for(controller='package', action='read', id=package.name) }}/">
-                <div class="dataset-info-content">No - Add one</div>
-              </a>
-            {% endif %}
         </div>
-        
 
-        
-      
+
+
+
            {# {% endif %} #}
-           
+
         {# end package_meta_info #}
         </div>
     {% endblock %}
