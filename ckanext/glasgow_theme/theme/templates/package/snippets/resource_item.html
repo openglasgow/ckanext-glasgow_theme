@@ -30,7 +30,7 @@
               {% if res.can_be_previewed %}
                 <img src = "/images/dataset_preview.png">
               {% else %}
-                more info image
+                <img src = "/images/dataset_info.png">
               {% endif %}
             </a>
             
@@ -42,23 +42,26 @@
               {% endif %}
             </a>
             
-            <a href="{{res.url}}" class="resource-url-analytics" target="_blank">
-              {% if res.can_be_previewed %}
-                <img src = "/images/dataset_certificate.png">
-              {% else %}
-                {# Go to resource #}
-              {% endif %}
-            </a>
+            {# <a href="{{res.url}}" class="resource-url-analytics" target="_blank"> #}
+            {#   {% if res.can_be_previewed %} #}
+            {#     <img src = "/images/dataset_certificate.png"> #}
+            {#   {% else %} #}
+            {#     
+            {#   {% endif %} #}
+            {# </a> #}
             
-            <a href="{{res.url}}" class="resource-url-analytics" target="_blank">
-              {% if res.can_be_previewed %}
-                <img src = "/images/dataset_dictionary.png">
-              {% else %}
-                {# Go to resource #}
-              {% endif %}
-            </a>
+            {# <a href="{{res.url}}" class="resource-url-analytics" target="_blank"> #}
+            {#   {% if res.can_be_previewed %} #}
+            {#     <img src = "/images/dataset_dictionary.png"> #}
+            {#   {% else %} #}
+            {#
+            {#   {% endif %} #}
+            {# </a> #}
+            
         {% if can_edit %}
-          Edit link
+          <a href="{{ h.url_for(controller='package', action='resource_edit', id=pkg.name, resource_id=res.id) }}">
+            <img src = "/images/dataset_edit.png">
+          </a> 
         {% endif %}
         {% endblock %}
 

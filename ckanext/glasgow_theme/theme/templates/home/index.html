@@ -1,27 +1,16 @@
-<<<<<<< Local Changes
 {% ckan_extends %}
 
 
 {% resource 'glasgow/js/vendor/jquery.royalslider.min/index.js' %}
 
 
-{# {% extends "page.html" %} #}
-
-
-
-
-
-
 {% block content %}
   
 
   <div>
-      <section class="hp-hero topbar-push">
-        <h1>OPEN Data. The gateway to exploring our city, helping you to understand and shape Glasgow in new and surprising ways.</h1>
-        <a href="/dataset" class="btn">See the data</a>
-      </section>
+    
 
-      <section class="hp-primary welcome">
+      <section class="hp-primary welcome topbar-push">
         <div class="hp-primary-content">
           <h2>Welcome to the Data Launchpad.</h2>
           <img src="/images/rocket.png" alt="welcome to data launchpad">
@@ -30,21 +19,12 @@
           </p>
           <a href="" class="btn">Learn More</a>
           
-          {# <div class="fp-stats"> #}
-          {#   <h1>A view inside:</h1> #}
-          {#   <dl> #}
-          {#     <dt>Data Sets</dt> #}
-          {#     <dd>{{  h.homepage_items.package_count() }}</dd> #}
-          {#  #}
-          {#     <dt>Organisations</dt> #}
-          {#     <dd>{{  h.homepage_items.organization_count() }}</dd> #}
-          {#  #}
-          {#     <dt>Edited this Month</dt> #}
-          {#     <dd>{{  h.homepage_items.this_month() }}</dd> #}
-          {#   </dl> #}
-          {# </div> #}
       </section>
-
+    
+      <section class="hp-hero topbar-push">
+        <h1>OPEN Data. The gateway to exploring our city, helping you to understand and shape Glasgow in new and surprising ways.</h1>
+        <a href="/dataset" class="btn">See the data</a>
+      </section>
 
       <section class="hp-secondary discover">
         <h2>
@@ -68,12 +48,10 @@
             <img src="images/FC_DataPortal_StoryIconElements_ExploreGlasgow.png" alt="story 1 icon" />
               <h3>Explore Glasgow with Open Data </h3>
               <p>
-                Never before has this much data about Glasgow been available!
-                With 400 datasets and 2,500+ resources on the Glasgow Open Data Portal,
-                 the opportunities are huge.
+                Learn about how Future Maps could show you a new side to Glasgow
             
               </p>
-              <a href="http://pbc.io/futurecities/datastories/explore-glasgow-with-open-data/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/explore-glasgow-with-open-data/" class="btn">Read the story</a>
           </li>
 
 
@@ -82,40 +60,30 @@
              <img src="images/FC_DataPortal_StoryIconElements_Commonwealth.png" alt="story 1 icon" />
               <h3>Commonwealth Legacy Carries On</h3>
               <p>
-                Whether you’ve won a Games-related contract, benefitted from the Commonwealth Apprenticeship Initiative,
-                or your school has been involved in Games-related projects,
-                this data can now be found on the Future Cities Open Data Portal.
+                See all the data from the Commonwealth games. 
 
               </p>
-              <a href="http://pbc.io/futurecities/datastories/commonwealth-legacy-carries-on/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/commonwealth-legacy-carries-on/" class="btn">Read the story</a>
           </li>
 
           <li class="story-linkout story-pink">
              <img src="images/FC_DataPortal_StoryIconElements_Sustainability.png" alt="story 1 icon" />
               <h3>Open data fuelling sustainability</h3>
               <p>
-                Are you wondering where the nearest recycling site is to your home?
-                Are you looking to develop solar photovoltaic panels in your community but do not know where?
-                Open data can now help citizens of Glasgow figure all this out!
-
-       ons.
+                Learn how open data can make you more green
 
               </p>
-              <a href="http://pbc.io/futurecities/datastories/opendatafuellingsustainability/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/opendatafuellingsustainability/" class="btn">Read the story</a>
           </li>
 
           <li class="story-linkout story-blue">
              <img src="images/FC_DataPortal_StoryIconElements_HomeSweetHome.png" alt="story 1 icon" />
               <h3>Home Sweet Home</h3>
               <p>
-                There are many things to think of when moving home and into a new area,
-                especially if that person is completely unfamiliar with the area.
-                
-                Using data available on the Open Glasgow,
-                 the people of Glasgow can make informed decisions based on actual evidence.
+                Open data can give you impartial advice on moving to a new area
                  
               </p>
-              <a href="http://pbc.io/futurecities/datastories/home-sweet-home/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/home-sweet-home/" class="btn">Read the story</a>
           </li>
 
         
@@ -123,11 +91,9 @@
             <img src="images/FC_DataPortal_StoryIconElements_GlasgowCycling.png" alt="story 1 icon" />
               <h3>Glasgow Cycling</h3>
               <p>
-               Are you a Glasgow cyclist?
-               Or would you like to get out on your bike more?
-               Open Data is helping to empower the cycling population of Glasgow.
+                How we use data to improve cycling in Glasgow for everyone
               </p>
-              <a href="http://pbc.io/futurecities/datastories/glasgow-cycling/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/glasgow-cycling/" class="btn">Read the story</a>
           </li>
 
 
@@ -135,13 +101,11 @@
            <img src="images/FC_DataPortal_StoryIconElements_DailyCommute.png" alt="story 1 icon" />
               <h3>The Daily commute</h3>
               <p>
-                Glasgow is an active and dynamic city. People travelling to their place of work or study mean that certain areas of the city are going to be busier than others at specific times of day.
-
-                Using Open Data it is possible to paint a picture to allow citizens to see how people are moving about the city at different times.
+                See the whole picture of how people move through the city
                
 
               </p>
-              <a href="http://pbc.io/futurecities/datastories/thedailycommute/" class="btn">Read the story</a>
+              <a href="http://open.glasgow.gov.uk/datastories/thedailycommute/" class="btn">Read the story</a>
           </li>
         </ul>
       </section>
@@ -197,21 +161,10 @@
           Data is all around us and is continuously generated as we interact with the city. It powers our apps and decisions. Glasgow has joined the journey in making this public good available for everyone to use and benefit from.
           </p>
           <a href="" class="btn">Learn about contributing data</a>
-          <a href="/dataset" class="btn">Add Your Data</a>
+          <a href="/dataset/new" class="btn">Add Your Data</a>
     
       </section>
 
-      <section class="hp-primary visualizations">
-        <div class="hp-primary-content">
-          <h2>Be part of the data revolution.</h2>
-          <img src="/images/plus.png" alt="data revolution">
-          <p>
-          Data is all around us and is continuously generated as we interact with the city. It powers our apps and decisions. Glasgow has joined the journey in making this public good available for everyone to use and benefit from.
-          </p>
-          <a href="" class="btn">Learn about contributing data</a>
-          <a href="/dataset" class="btn">Add Your Data</a>
-    
-      </section>
 
       <section class="hp-primary safety">
         <div class="hp-primary-content">
@@ -236,5 +189,4 @@
 
 {# Remove the toolbar. #}
 {% block toolbar %}{% endblock %}
-=======
->>>>>>> External Changes
+

@@ -28,7 +28,7 @@ Example:
           </h3>
         {% endif %}
         {% block heading %}
-          <h3 class="dataset-list-heading">
+          <div class="dataset-list-heading">
             {% block heading_private %}
               {% if package.private %}
                 <span class="dataset-private label label-inverse">
@@ -48,7 +48,7 @@ Example:
               {% endif %}
               {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
             {% endblock %}
-          </h3>
+          </div>
         {% endblock %}
         {% block banner %}
           {% if banner %}
@@ -87,14 +87,14 @@ Example:
         {% endblock %}
 
         {# {% if package.licence_title %} #}
-        <div class="dataset-license-container">
-          <h5 class="dataset-info-title">License</h4>
-          {% if package.license_url %}
+        {% if package.license_url %}
+          <div class="dataset-license-container">
+            <h5 class="dataset-info-title">License</h5>
+          
             <div class="dataset-info-content"><a href = {{package.license_url}}>{{package.license_title}}</a></div>
-          {% else %}
-            <div class="dataset-info-content">{{package.license_title|truncate(15)}}</div>
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
+        
          {#   {% endif %} #}
 
           {#  {% if package.metadate_created %} #}

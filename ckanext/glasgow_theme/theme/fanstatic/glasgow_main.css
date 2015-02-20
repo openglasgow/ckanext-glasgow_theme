@@ -9328,12 +9328,41 @@ legend + .control-group {
   right: auto;
   left: 5px;
 }
+.search-result-text {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 15px 5px 15px;
+}
+.search-results {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 2em;
+}
+.search-config {
+  display: inline-block;
+  float: right;
+  padding-bottom: 15px;
+  position: relative;
+  top: -20px;
+}
+.search-facet-list {
+  display: inline-block;
+  margin-top: 10px;
+}
 .dataset-item {
   border-bottom: 1px solid #444444;
   padding-bottom: 1em;
   margin-bottom: 1em;
 }
 .dataset-info-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin-top: 0px;
+}
+.dataset-info-license {
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 4px;
@@ -9374,6 +9403,9 @@ legend {
   font-size: 30px;
   padding: 0.1em 0em;
   color: #4d4d4d;
+  line-height: 1em;
+  margin: 10px 0;
+  display: block;
 }
 .dataset-info {
   margin-top: 0px;
@@ -9395,6 +9427,15 @@ legend {
   float: right;
   width: 38%;
 }
+.dataset-content-ds-page {
+  padding-right: 15px;
+  text-align: justify;
+  border-bottom: 1px solid #ddd;
+}
+.package-meta-ds-page {
+  margin-top: 10px;
+  display: block;
+}
 .dataset-date-container,
 .dataset-license-container,
 .dataset-resources-container {
@@ -9403,6 +9444,15 @@ legend {
   position: block;
   position: inline-block;
   width: 100px;
+}
+.dataset-date-container-ds-page,
+.dataset-license-container-ds-page,
+.dataset-resources-container-ds-page {
+  float: left;
+  padding-left: .8em;
+  position: block;
+  position: inline-block;
+  width: 20%;
 }
 .section-heading-red,
 .page-heading-red,

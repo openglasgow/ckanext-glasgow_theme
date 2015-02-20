@@ -26,7 +26,7 @@
   {# <h4 class="section-heading-light">Approvals</h4> #}
   {#  #}
   {#  {% block versions %} #}
-  {#    {# {{ }} #} #}
+
   {#  {% endblock %} #}
 
    <h4 class="section-heading-light">Activity</h4>
@@ -67,18 +67,18 @@
         <th scope="row" class="dataset-label">{{ _('Theme') }}</th>
         <td class="dataset-details">{{ pkg.theme or '-' }}</td>
      </tr>
-     <tr>
-        <th scope="row" class="dataset-label">{{ _('Standard Rating') }}</th>
-        <td class="dataset-details">{{ h.show_int_value(pkg.standard_rating) }}</td>
-     </tr>
-     <tr>
-        <th scope="row" class="dataset-label">{{ _('Standard Name') }}</th>
-        <td class="dataset-details">{{ pkg.standard_name or '-' }}</td>
-     </tr>
-     <tr>
-        <th scope="row" class="dataset-label">{{ _('Standard Version') }}</th>
-        <td class="dataset-details">{{ pkg.standard_version or '-' }}</td>
-     </tr>
+     {# <tr> #}
+     {#    <th scope="row" class="dataset-label">{{ _('Standard Rating') }}</th> #}
+     {#    <td class="dataset-details">{{ h.show_int_value(pkg.standard_rating) }}</td> #}
+     {# </tr> #}
+     {# <tr> #}
+     {#    <th scope="row" class="dataset-label">{{ _('Standard Name') }}</th> #}
+     {#    <td class="dataset-details">{{ pkg.standard_name or '-' }}</td> #}
+     {# </tr> #}
+     {# <tr> #}
+     {#    <th scope="row" class="dataset-label">{{ _('Standard Version') }}</th> #}
+     {#    <td class="dataset-details">{{ pkg.standard_version or '-' }}</td> #}
+     {# </tr> #}
 
 
     </tbody>

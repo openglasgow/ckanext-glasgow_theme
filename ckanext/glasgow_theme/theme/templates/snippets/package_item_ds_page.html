@@ -1,12 +1,13 @@
-{% set truncate = truncate or 180 %}
+{% set truncate = truncate or 30000 %}
 {% set truncate_title = truncate_title or 80 %}
 {% set title = package.title or package.name %}
-{% set notes = h.markdown_extract(package.notes, extract_length=truncate) %}
+{% set notes = h.render_markdown(package.get('notes')) %}
+
 
 {% block package_item %}
   <div class="{{ item_class or "dataset-item" }}">
     {% block content %}
-      <div class="dataset-content">
+      <div class="dataset-content-ds-page">
 
 
         {% block banner %}
@@ -22,20 +23,9 @@
           {% endif %}
         {% endblock %}
 
-      {# TODO - fix these in the layouts - header bar #}
-       <br>
-        <div class="dataset-date-container">
-          <h5 class="dataset-info-title">Openness Rating</h5>
-          <div class="dataset-info-content">{{ h.show_int_value(package.openness_rating) }}</div>
 
-        </div>
-        <div class="dataset-date-container">
-          <h5 class="dataset-info-title">Quality Rating</h5>
-          <div class="dataset-info-content">{{ h.show_int_value(package.quality_rating) }}</div>
-        </div>
       </div>
-
-      <div class="package-meta-info">
+      <div class="package-meta-ds-page">
         {% block resources %}
           {% if package.resources and not hide_resources %}
             {% block resources_outer %}
@@ -58,28 +48,38 @@
         {% endblock %}
 
         {# {% if package.licence_title %} #}
-        <div class="dataset-license-container">
+        <div class="dataset-license-container-ds-page">
           <h5 class="dataset-info-title">License</h4>
           {% if package.license_url %}
-            <div class="dataset-info-content"><a href = {{package.license_url}}>{{package.license_title}}</a></div>
+            <div class="dataset-info-title"><a href ={{package.license_url}}>{{package.license_title}}</a></div>
           {% else %}
-            <div class="dataset-info-content">{{package.license_title|truncate(15)}}</div>
+            <div class="dataset-info-content">See sidebar</div>
           {% endif %}
         </div>
 
 
-        <div class="dataset-date-container">
+        <div class="dataset-date-container-ds-page">
           <h5 class="dataset-info-title">Date Added</h4>
           <div class="dataset-info-content">{{h.render_datetime(package.metadata_created)}}</div>
         </div>
 
+        {# TODO - fix these in the layouts - header bar #}
+          <div class="dataset-date-container-ds-page">
+            <h5 class="dataset-info-title">Openness Rating</h5>
+            <div class="dataset-info-content">{{ h.show_int_value(package.openness_rating) }}</div>
 
+          </div>
+          <div class="dataset-date-container-ds-page">
+            <h5 class="dataset-info-title">Quality Rating</h5>
+            <div class="dataset-info-content">{{ h.show_int_value(package.quality_rating) }}</div>
+          </div>
+        </div>
 
 
            {# {% endif %} #}
 
         {# end package_meta_info #}
-        </div>
+
     {% endblock %}
   </div>
 {% endblock %}
