@@ -11,7 +11,7 @@ setup(
     ''',
     classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords='',
-    author='Devon Walshe / Marek Bell',
+    author='Devon Walshe',
     author_email='devon.walshe@gmail.com',
     url='data.glasgow.gov.uk',
     license='OGL',
