@@ -1,0 +1,119 @@
+/* Glasgow Main Less File */
+.hero {
+  background-image: url("/images/hero_cloisters.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+#hero-search {
+  margin-top: 120px;
+}
+.alert {
+  margin: 6px;
+}
+.search-form {
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+}
+.search-form .search-input .search {
+  border-radius: 30px;
+  border-width: 3px;
+  border-color: #f7d222;
+}
+.search-form .search-input.search-giant button {
+  margin-top: -15px;
+}
+.search-form .search-input.search-giant button i {
+  color: #016d6d;
+}
+#home-themes {
+  text-align: center;
+}
+.theme-container {
+  background-color: #fff;
+  padding: 20px;
+}
+.theme-container .theme-box {
+  display: inline-block;
+  margin: 0 10px;
+}
+.theme-container .theme-image {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 75px;
+}
+.theme-container .theme-image img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+}
+.theme-container .theme-title {
+  text-align: center;
+  color: #016d6d;
+  font-size: 1.1em;
+  font-weight: 900;
+}
+.site-footer {
+  background-color: #016d6d;
+  background-image: none;
+}
+.account-masthead {
+  background-color: #016d6d;
+}
+.masthead {
+  background-color: #fff;
+  padding: 10px;
+}
+#header-title {
+  font-size: 3em;
+  font-weight: 900;
+  display: inline-block;
+  color: #016d6d;
+  vertical-align: bottom;
+  margin-bottom: 8px;
+}
+.nav-main ul {
+  margin: 0;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1.5em;
+  background-color: #016d6d;
+}
+.nav-main a {
+  color: #fff;
+}
+.nav-pills > a,
+.nav-pills > a:hover,
+.nav-pills > a:focus {
+  color: #000;
+}
+.nav-pills > li > a:hover {
+  background-color: #f7d222;
+}
+.wrapper {
+  box-shadow: none;
+  border: none;
+}
+.filters .module-heading {
+  border-radius: 15px !important;
+  background-color: #e1e3e9;
+}
+/* Colours */
+body {
+  background-color: #fff;
+}
+[role=main] {
+  background-color: #fff;
+  background-image: none;
+}
+.row.wrapper {
+  background-image: none;
+}
+[role=main] .secondary {
+  margin-left: -15px;
+}

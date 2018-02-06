@@ -1,5 +1,7 @@
 
         [ckan.plugins]
-        # Add plugins here, e.g.
-        glasgow_theme=ckanext.glasgow_theme.plugin:GlasgowThemePlugin
+        glasgow_theme=ckanext.glasgow_theme.plugin:Glasgow_ThemePlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
     

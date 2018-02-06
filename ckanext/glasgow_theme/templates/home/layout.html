@@ -1,0 +1,21 @@
+<div class="hero">
+  <div class="container" >
+	<div id="hero-search">    
+	    {% block search %}
+	      {% snippet 'home/snippets/search.html' %}
+	    {% endblock %}
+	</div>
+  </div>
+</div>
+
+<div class="container-fluid theme-container">
+	<div class="row row2">
+		{% block themes %}
+			{% snippet 'home/snippets/themes.html' %}
+		{% endblock %}
+
+		{% block news %}
+			{# {% snippet 'home/snippets/news.html' %} #}
+		{% endblock %}
+	</div>
+</div>
