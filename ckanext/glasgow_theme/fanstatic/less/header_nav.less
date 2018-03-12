@@ -1,5 +1,5 @@
 .account-masthead{
-	background-color: @glasgow-green
+	background-color: @glasgow-green;
 }
 
 
@@ -8,38 +8,47 @@
 	padding: 10px;
 }
 
-#header-title{
-	font-size:3em;
-	font-weight:900;
-	display:inline-block;
-	color: @glasgow-green;
-	vertical-align:bottom;
-	margin-bottom:8px;
+
+.logo{
+  max-width:15%;
+  display: inline-block;
+}
+
+.nav-main {
+  display: inline-block;
 }
 
 .nav-main ul {
 	margin: 0;
-	padding: 15px;
+	padding: 20px 0px 20px 0;
 	font-weight: 700;
 	font-size: 1.5em;
-	background-color: @glasgow-green;
+	// background-color: @glasgow-green;
 }
 
-.nav-main a{
-	color: #fff;
-}
 
-.nav-pills > a,
-.nav-pills > a:hover,
-.nav-pills > a:focus {
-  color: #000;
+.masthead .navigation .nav-pills > li a,
+{
+  color: @glasgow-green;
+  transition: background-color 0.3s ease;
 
-}
-
-.nav-pills > li > a {
   &:hover{
-  	background-color: @glasgow-yellow;
+    background-color: @glasgow-green;
+    color: #fff;
   }
+  
+  &:focus{
+    background-color: @glasgow-green;
+  }
+  &:active{
+    background-color: @glasgow-green;
+  }
+
+}
+
+.masthead .navigation .nav-pills > li.active a{
+  background-color: @glasgow-green;
+  color: #fff;
 }
 
 // .nav-pills > .active > a {

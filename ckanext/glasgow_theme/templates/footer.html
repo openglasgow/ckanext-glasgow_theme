@@ -2,17 +2,16 @@
   <div class="container">
     {% block footer_content %}
     <div class="row">
-      <div class="span8 footer-links">
-        {% block footer_nav %}
-
-          <ul class="unstyled">
-            {% block footer_links_ckan %}
-              {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
-              <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
-              <li><a href="http://www.opendefinition.org/okd/"><img src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}"></a></li>
-            {% endblock %}
-          </ul>
-        {% endblock %}
+      <div class="span4 footer-smart">
+        <img src="/images/SmartCitiesLogo.png"/>
+      </div>
+      <div class="span4  footer-erdf">
+        <img src="/images/erdf.png"/>
+      </div>
+      <div class="span4">
+        <div class="pull-right footer-gcc">
+          <img src="/images/ggclogomono.png"/>
+        </div>
       </div>
     </div>
     {% endblock %}

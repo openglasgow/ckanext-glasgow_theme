@@ -1,8 +1,8 @@
 {% ckan_extends %}
 {% block header_wrapper %}
-{% block header_account %}
+  {% block header_account %}
   <header class="account-masthead">
-    <div class="container-fluid">
+    <div class="container">
       {% block header_account_container_content %}
         {% if c.userobj %}
           <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
@@ -72,24 +72,44 @@
       <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
     {% endif %}
   {% endblock %}
-  <div class="container-fluid">
+  <div class="container">
     
 
-  	  {% block header_logo %}
-        {% if g.site_logo %}
-          <a class="logo" href="{{ h.url_for('home') }}"><img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
-			<div id="header-title">
-          		{{g.site_title}}
-          	</div>
-          </a>
+  {% block header_logo %}
+    {% if g.site_logo %}
+      <a class="logo" href="{{ h.url_for('home') }}"><img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
+  {#      <div id="header-title">
+      		{{g.site_title}}
+        </div> #}
+      </a>
 
-        {% else %}
-          <h1>
-            <a href="{{ h.url_for('home') }}">{{ g.site_title }}</a>
-          </h1>
-          {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
-        {% endif %}
-      {% endblock %}
+  {#   {% else %}
+      <h1>
+        <a href="{{ h.url_for('home') }}">{{ g.site_title }}</a>
+      </h1>
+      {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %} #}
+    {% endif %}
+
+    <header class="nav-main pull-right">
+      
+        <div class="nav-collapse collapse">
+
+          {% block header_site_navigation %}
+            <nav class="section navigation">
+              <ul class="nav nav-pills">
+                {% block header_site_navigation_tabs %}
+                  {{ h.build_nav_main(
+                    ('search', _('Datasets')),
+                    ('organizations_index', _('Organizations')),
+                    ('group_index', _('Themes')),
+                    ('about', _('About'))
+                  ) }}
+                {% endblock %}
+              </ul>
+            </nav>
+          {% endblock %}
+    </header>
+  {% endblock %}
 
 
 {#  Move this to hero block #}
@@ -105,28 +125,10 @@
       {% endblock %} 
       #}
 
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
 
-<header class="nav-main">
-	
-    <div class="nav-collapse collapse">
-
-      {% block header_site_navigation %}
-        <nav class="section navigation">
-          <ul class="nav nav-pills">
-            {% block header_site_navigation_tabs %}
-              {{ h.build_nav_main(
-                ('search', _('Datasets')),
-                ('organizations_index', _('Organizations')),
-                ('group_index', _('Themes')),
-                ('about', _('About'))
-              ) }}
-            {% endblock %}
-          </ul>
-        </nav>
-      {% endblock %}
-</header>
+  
 {% endblock %}

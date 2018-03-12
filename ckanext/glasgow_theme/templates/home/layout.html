@@ -8,14 +8,21 @@
   </div>
 </div>
 
-<div class="container-fluid theme-container">
-	<div class="row row2">
-		{% block themes %}
-			{% snippet 'home/snippets/themes.html' %}
+<div class="container-fluid stories">
+	<div class='container'>
+			<div class="row row2">
+		{% block stories %}
+			<h2>&nbsp;&nbsp;Stories</h2>
+			{% snippet 'home/snippets/stories.html' %}
+		{% endblock %}
+		{% block projects %}
+			<h2>&nbsp;&nbsp;Projects</h2>
+			{% snippet 'home/snippets/projects.html' %}
 		{% endblock %}
 
 		{% block news %}
 			{# {% snippet 'home/snippets/news.html' %} #}
 		{% endblock %}
+	</div>
 	</div>
 </div>
