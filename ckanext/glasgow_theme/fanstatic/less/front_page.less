@@ -1,14 +1,20 @@
 
 .hero{
-	background-image: url("/images/hero_cloisters.jpg");
-	display: flex;
-	justify-content: center;
-  	align-items: center; 
-  	min-height:400px;
+	background: url('/images/hero-sse.jpg') no-repeat top center;
+	background-size: 100% auto;
+	min-height: 350px;
 }
 
 #hero-search{
-	margin-top: 120px;
+	margin: 0 auto;
+	margin-top: 200px;
+	display:block;
+	width: 70%;
+}
+
+#hero-logo{
+	margin: 0 auto;
+	display: block;
 }
 
 .alert{
@@ -80,16 +86,15 @@
 	background: #fff;
 	margin:10px;
 	display: inline-block;
-	vertical-align: top;
+	height: 100px;
+
 	.image{
-		height:50px;
-		text-align:left;
 		display: inline-block;
-		width: 40%;
+		width: 45%;
 		height: 100%;
+		overflow: hidden;
 		img{
-			object-fit: contain;
-			height: 100%;
+			height: auto;
 			width: 100%;
 		}
 	}
@@ -104,5 +109,3 @@
 	}
 
 }
-
-

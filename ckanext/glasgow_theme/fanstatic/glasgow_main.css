@@ -1,13 +1,47 @@
 /* Glasgow Main Less File */
+/* Colours */
+body {
+  font-family: 'Helvetica Neue Light', Helvetica, Arial, 'sans-serif';
+  background-color: #fff;
+}
+[role=main] {
+  background-color: #fff;
+  background-image: none;
+}
+.row.wrapper {
+  background-image: none;
+}
+[role=main] .secondary {
+  margin-left: -15px;
+}
+@font-face {
+  font-family: 'Helvetica Neue Light';
+  src: url('/font/light/HelveticaNeue-Light.eot');
+  src: url('/font/light/HelveticaNeue-Light.eot?#iefix') format('embedded-opentype'), url('/font/light/HelveticaNeue-Light.woff2') format('woff2'), url('/font/light/HelveticaNeue-Light.woff') format('woff'), url('/font/light/HelveticaNeue-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue Medium';
+  src: url('/font/medium/HelveticaNeueMedium.eot');
+  src: url('/font/medium/HelveticaNeueMedium.eot?#iefix') format('embedded-opentype'), url('/font/medium/HelveticaNeueMedium.woff2') format('woff2'), url('/font/medium/HelveticaNeueMedium.woff') format('woff'), url('/font/medium/HelveticaNeueMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
 .hero {
-  background-image: url("/images/hero_cloisters.jpg");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 400px;
+  background: url('/images/hero-sse.jpg') no-repeat top center;
+  background-size: 100% auto;
+  min-height: 350px;
 }
 #hero-search {
-  margin-top: 120px;
+  margin: 0 auto;
+  margin-top: 200px;
+  display: block;
+  width: 70%;
+}
+#hero-logo {
+  margin: 0 auto;
+  display: block;
 }
 .alert {
   margin: 6px;
@@ -65,18 +99,16 @@
   background: #fff;
   margin: 10px;
   display: inline-block;
-  vertical-align: top;
+  height: 100px;
 }
 .project .image {
-  height: 50px;
-  text-align: left;
   display: inline-block;
-  width: 40%;
+  width: 45%;
   height: 100%;
+  overflow: hidden;
 }
 .project .image img {
-  object-fit: contain;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 .project .title {
@@ -137,6 +169,7 @@
 .footer-smart {
   height: 100%;
   display: block;
+  margin: 0 15px 0 15px;
 }
 .footer-smart img {
   height: 100px;
@@ -145,6 +178,7 @@
   height: 100%;
   display: block;
   text-align: center;
+  margin: 0 15px 0 15px;
 }
 .footer-erdf img {
   height: 100px;
@@ -152,9 +186,18 @@
 .footer-gcc {
   height: 100%;
   display: block;
+  margin: 0 15px 0 15px;
 }
 .footer-gcc img {
   height: 100px;
+}
+#footer-links {
+  float: left;
+  width: 45%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 1px;
 }
 .site-footer {
   background-color: #016d6d;
@@ -203,18 +246,4 @@
 #story-image {
   margin: 30px 0;
   text-align: center;
-}
-/* Colours */
-body {
-  background-color: #fff;
-}
-[role=main] {
-  background-color: #fff;
-  background-image: none;
-}
-.row.wrapper {
-  background-image: none;
-}
-[role=main] .secondary {
-  margin-left: -15px;
 }

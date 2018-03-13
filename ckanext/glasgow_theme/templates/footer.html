@@ -2,17 +2,26 @@
   <div class="container">
     {% block footer_content %}
     <div class="row">
-      <div class="span4 footer-smart">
-        <img src="/images/SmartCitiesLogo.png"/>
+      <div class='span5'>
+        <ul id="footer-links">
+          <li><a href="/pages/cookies-and-privacy" target="_self" title="Cookies and Privacy">Cookies and Privacy</a></li>
+          <li><a href="/pages/code-of-conduct" target="_self" title="Code of Conduct">Code of Conduct</a></li>
+          <li><a href="/pages/data-policy" target="_self" title="Data Policy">Data Policy</a></li>
+          <li><a href="http://docs.ckan.org/en/ckan-2.7.2/api/" target="_self" title="CKAN API">CKAN API</a></li>
+        </ul>
       </div>
-      <div class="span4  footer-erdf">
-        <img src="/images/erdf.png"/>
-      </div>
-      <div class="span4">
+      <div class="pull-right">
         <div class="pull-right footer-gcc">
           <img src="/images/ggclogomono.png"/>
         </div>
       </div>
+      <div class="footer-erdf pull-right">
+        <img src="/images/erdf.png"/>
+      </div>
+      <div class="footer-smart pull-right">
+        <img src="/images/SmartCitiesLogo.png"/>
+      </div>
+
     </div>
     {% endblock %}
   </div>
