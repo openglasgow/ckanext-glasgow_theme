@@ -4,7 +4,7 @@
                "news6":{"img": "image2.png", "title":"Building Information Modelling (BIM)", "link":"building-information-modelling-bim"}}%}
 {% for story, data in projects.items() %}
   <div class='project'>
-    <a href="/pages/{{projects['link']}}">
+    <a href="/pages/{{data['link']}}">
       <div class="image">
         <img src="images/{{data['img']}}"/>
       </div>
