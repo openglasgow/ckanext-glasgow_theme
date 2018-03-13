@@ -1,13 +1,16 @@
-{% set stories = {"story1":{"img": "opendata-logo.png", "title":"Welcome to Glasgow Data"}, 
-									"story2":{"img": "Story-FOI.jpg", "title":"Freedom of Information (FOI)"}, 
-									"story3":{"img": "gcc_logo_350w.png", "title":"Mapping Glasgow"} }%}
+{% set stories = {"story1":{"img": "opendata-logo.png", "title":"Welcome to Glasgow Data", "link":"welcome-to-open-data-glasgow"}, 
+									"story2":{"img": "Story-FOI.jpg", "title":"Freedom of Information (FOI)", "link":"freedom-of-information"}, 
+									"story3":{"img": "gcc_logo_350w.png", "title":"Mapping Glasgow", "link":"mapping-glasgow"} }%}
 {% for story, data in stories.items()[::-1] %}
-	<div class='story'>
-		<div class="image">
-			<img src="images/{{data['img']}}"/>
+	
+		<div class='story'>
+			<a href="/pages/{{data['link']}}">
+				<div class="image">
+					<img src="images/{{data['img']}}"/>
+				</div>
+				<div class="title">
+					{{data['title']}}
+				</div>
+			</a>
 		</div>
-		<div class="title">
-			{{data['title']}}
-		</div>
-	</div>
 {%endfor %}
