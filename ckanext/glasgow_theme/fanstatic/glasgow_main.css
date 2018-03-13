@@ -30,7 +30,7 @@ body {
 }
 .hero {
   background: url('/images/hero-sse.jpg') no-repeat top center;
-  background-size: 100% auto;
+  background-size: cover;
   min-height: 350px;
 }
 #hero-search {
