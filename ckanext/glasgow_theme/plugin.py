@@ -2,6 +2,8 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.glasgow_theme.model.license import *
 
+
+
 class Glasgow_ThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
 

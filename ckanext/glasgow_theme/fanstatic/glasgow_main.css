@@ -167,7 +167,6 @@ body {
   background-color: #e1e3e9;
 }
 .footer-smart {
-  height: 100%;
   display: block;
   margin: 0 15px 0 15px;
 }
@@ -175,7 +174,6 @@ body {
   height: 100px;
 }
 .footer-erdf {
-  height: 100%;
   display: block;
   text-align: center;
   margin: 0 15px 0 15px;
@@ -184,7 +182,6 @@ body {
   height: 100px;
 }
 .footer-gcc {
-  height: 100%;
   display: block;
   margin: 0 15px 0 15px;
 }
@@ -246,4 +243,8 @@ body {
 #story-image {
   margin: 30px 0;
   text-align: center;
+}
+.ckanext-pages-content img {
+  height: auto !important;
+  width: auto !important;
 }
